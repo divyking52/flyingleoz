@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flying Leoz Media — Media and Marketing, Simplified</title>
+<meta name="description" content="Flying Leoz Media Private Limited helps startups and established brands grow with tailored media and marketing strategies.">
+<meta name="theme-color" content="#0c0e12">
+<link rel="icon" href="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/51f0a433-4cbb-4c6e-811f-f87c9548e9ee/small_flying-leoz-logo-3-ueSxJwJUW06ji8SL.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:#0c0e12;
+  --elev:#111317;
+  --sheet:rgba(255,255,255,.04);
+  --sheet-2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.10);
+  --line-soft:rgba(255,255,255,.06);
+  --text:#fff;
+  --muted:rgba(255,255,255,.56);
+  --faint:rgba(255,255,255,.36);
+  --primary:#f8ce04;
+  --primary-soft:rgba(248,206,4,.13);
+  --on-primary:#12140a;
+  --accent:#ff4112;
+  --accent-soft:rgba(255,65,18,.14);
+
+  --max:1440px;
+  --pad:clamp(16px,3.4vw,40px);
+  --gap:clamp(18px,2.2vw,32px);
+  --sect:clamp(68px,9.4vw,152px);
+
+  --pill:100px;
+  --r-lg:40px;
+  --r-md:24px;
+  --r-sm:12px;
+  --r-tag:4px;
+
+  --display:"Golos Text",Georgia,serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-2:cubic-bezier(.2,.8,.2,1);
+  --nav-h:64px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+[id]{scroll-margin-top:calc(var(--nav-h) + 28px)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:clamp(15px,.55vw,16.5px);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+body.is-locked{overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+::selection{background:var(--primary);color:var(--on-primary)}
+
+/* ============================================================
+   PRIMITIVES
+   ============================================================ */
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.sect{padding-block:var(--sect);position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-size:clamp(11px,.72vw,13px);font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--primary)}
+.dsp{
+  font-family:var(--display);font-weight:500;
+  line-height:.92;letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.h-xl{font-size:clamp(2.1rem,6.2vw,5.2rem)}
+.h-lg{font-size:clamp(1.65rem,3.5vw,2.9rem)}
+.h-md{font-size:clamp(1.25rem,2vw,1.7rem);letter-spacing:-.03em}
+.lede{font-size:clamp(1rem,1.35vw,1.28rem);line-height:1.5;color:var(--muted);text-wrap:pretty}
+.small{font-size:.86rem;color:var(--faint);line-height:1.5}
+.mono{font-family:var(--display);font-size:clamp(11px,.72vw,12.5px);letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.rule{height:1px;background:var(--line-soft);border:0;margin:0}
+
+/* pill button */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 8px 8px 22px;border-radius:var(--pill);
+  font-family:var(--display);font-weight:500;font-size:clamp(14px,1vw,16px);letter-spacing:-.01em;
+  background:var(--text);color:var(--bg);
+  transition:background .4s var(--ease),color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease);
+  will-change:transform;
+}
+.btn__ico{
+  flex:none;display:grid;place-items:center;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--primary);color:var(--on-primary);
+  transition:transform .45s var(--ease),background .45s var(--ease);
+}
+.btn__ico svg{width:15px;height:15px;transition:transform .45s var(--ease)}
+.btn:hover{box-shadow:0 14px 40px -18px rgba(248,206,4,.55)}
+.btn:hover .btn__ico svg{transform:translate(2px,-2px)}
+.btn:active{transform:scale(.975)}
+.btn--ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn--ghost .btn__ico{background:var(--sheet-2);color:var(--text)}
+.btn--ghost:hover{background:var(--sheet);border-color:rgba(255,255,255,.2);box-shadow:none}
+.btn--sm{padding:6px 6px 6px 18px}
+.btn--sm .btn__ico{width:32px;height:32px}
+.btn--full{padding:13px 24px}
+.btn--primary{background:var(--primary);color:var(--on-primary)}
+.btn--primary .btn__ico{background:var(--accent);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.btn--primary:hover{box-shadow:0 18px 46px -18px rgba(248,206,4,.62)}
+
+/* link with sliding underline */
+.ul{position:relative;display:inline-block;padding-bottom:2px}
+.ul::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.ul:hover::after{transform:scaleX(1)}
+
+/* reveal */
+[data-rv]{opacity:0;transform:translate3d(0,26px,0);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+[data-rv].in{opacity:1;transform:none}
+[data-rv="mask"]{opacity:1;transform:none;overflow:hidden;display:block}
+[data-rv="mask"]>span{display:block;transform:translate3d(0,110%,0);transition:transform 1.05s var(--ease);transition-delay:var(--d,0ms)}
+[data-rv="mask"].in>span{transform:none}
+/* reference appear: opacity .001 + y 5px, 1s no-bounce spring, 75ms per word, 200ms start */
+[data-rv="word"]{opacity:1;transform:none}
+[data-rv="word"] .w{display:inline-block;opacity:.001;transform:translate3d(0,5px,0);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(200ms + var(--wi,0)*75ms)}
+[data-rv="word"].in .w{opacity:1;transform:none}
+[data-rv="fade"]{transform:none}
+[data-rv="img"]{opacity:1;transform:none}
+[data-rv="img"]>img{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s var(--ease);transition-delay:var(--d,0ms)}
+[data-rv="img"].in>img{clip-path:inset(0 0 0 0)}
+
+/* image frame */
+.fr{position:relative;overflow:hidden;background:var(--elev);border-radius:var(--r-md)}
+.fr img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),filter .8s var(--ease)}
+.fr:hover img{transform:scale(1.055)}
+.fr::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--line-soft);pointer-events:none}
+
+/* skip link */
+.skip{position:fixed;top:8px;left:8px;z-index:200;padding:12px 18px;background:var(--text);color:var(--bg);border-radius:var(--r-sm);transform:translateY(-160%);transition:transform .3s}
+.skip:focus{transform:none}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{position:fixed;inset:0 0 auto;z-index:120;padding-block:clamp(12px,1.6vw,22px);transition:background .5s var(--ease),box-shadow .5s var(--ease)}
+.nav__in{
+  width:100%;max-width:var(--max);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding-inline:var(--pad);
+}
+.nav.is-stuck{background:rgba(9,10,13,.74);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);box-shadow:inset 0 -1px 0 var(--line-soft)}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand img{height:clamp(28px,2.5vw,36px);width:auto;border-radius:8px}
+.brand b{font-family:var(--display);font-weight:600;font-size:clamp(16px,1.15vw,21px);letter-spacing:-.02em}
+.nav__links{display:flex;align-items:center;gap:clamp(16px,2.1vw,34px)}
+.nav__links a{
+  font-family:var(--display);font-size:clamp(12px,.82vw,14px);font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.74);
+  transition:color .35s var(--ease);
+}
+.nav__links a:hover,.nav__links a.active{color:#fff}
+.nav__cta{display:flex;align-items:center;gap:10px;flex:none}
+.icon-btn{display:grid;place-items:center;width:clamp(38px,2.9vw,46px);height:clamp(38px,2.9vw,46px);border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);background:rgba(9,10,13,.4);color:#fff;
+  transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.icon-btn svg{width:15px;height:15px;transition:transform .4s var(--ease)}
+.icon-btn:hover{background:var(--accent);border-color:transparent}
+.icon-btn:hover svg{transform:translate(2px,-2px)}
+.icon-btn:active{transform:scale(.94)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(9,10,13,.4);position:relative;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.burger i{position:absolute;left:50%;width:20px;height:1.5px;margin-left:-10px;background:var(--text);transition:transform .45s var(--ease),opacity .3s}
+.burger i:nth-child(1){top:calc(50% - 3px)}
+.burger i:nth-child(2){top:calc(50% + 1.5px)}
+.is-open .burger i:nth-child(1){transform:translateY(2.25px) rotate(45deg)}
+.is-open .burger i:nth-child(2){transform:translateY(-2.25px) rotate(-45deg)}
+
+/* mobile sheet */
+.sheet{
+  position:fixed;inset:0;z-index:110;display:grid;gap:6px;
+  align-content:flex-start;
+  align-content:safe center;
+  overflow-y:auto;overscroll-behavior:contain;padding:16vh var(--pad) 12vh;
+  background:rgba(12,14,18,.94);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s;
+  -webkit-tap-highlight-color:transparent;
+}
+/* visibility must flip at once on open, or the first link cannot take focus mid-fade */
+.is-open .sheet{opacity:1;visibility:visible;transition:opacity .5s var(--ease),visibility 0s}
+.sheet a{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+}
+.is-open .sheet a{opacity:1;transform:none}
+.sheet__lnk{
+  display:flex;align-items:baseline;gap:14px;color:var(--text);touch-action:manipulation;
+  font-family:var(--display);font-size:clamp(1.8rem,8.6vw,3.1rem);font-weight:500;letter-spacing:-.04em;line-height:1.05;
+}
+.sheet__lnk span{font-family:var(--body);font-size:.7rem;letter-spacing:.14em;color:var(--faint)}
+.sheet__foot{margin-top:26px;padding-top:clamp(20px,2.6vw,28px);border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center}
+@media (max-width:1023px){
+  .nav__links{display:none}
+  .burger{display:block}
+  .nav__cta .btn{display:none}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;isolation:isolate;display:flex;flex-direction:column;
+  min-height:100svh;overflow:clip;
+  padding-top:clamp(92px,10.5vw,168px);padding-bottom:clamp(12px,1.4vw,20px);
+}
+.hero__bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#06070a}
+.hero__red{
+  position:absolute;top:-70%;bottom:-70%;left:-14%;right:-14%;
+  transform:rotate(26deg);filter:blur(clamp(26px,3.6vw,54px));
+  background:linear-gradient(90deg,#06070a 0 27%,rgba(92,72,7,.62) 33%,#896b0a 41%,#a4810c 56%,#92580c 72%,#4f1e09 88%,rgba(14,6,3,.9) 100%);
+}
+.hero__hot{position:absolute;inset:0;background:radial-gradient(70% 58% at 94% -12%,rgba(182,143,14,.72),rgba(134,105,10,.3) 46%,transparent 74%)}
+.hero__grain{position:absolute;inset:0;opacity:.17;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero__dim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,10,.5),transparent 22%,transparent 44%,rgba(10,5,5,.55) 76%,#0b0d11 100%)}
+
+.hero__main{
+  position:relative;z-index:1;width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(22px,4vw,60px);
+}
+.hero__copy{max-width:min(540px,58%)}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(1.65rem,2.75vw,3.05rem);line-height:1.14;letter-spacing:-.022em;max-width:19ch}
+.hero__say{margin-top:clamp(12px,1.3vw,18px);font-size:clamp(.92rem,.95vw,1.02rem);line-height:1.55;color:rgba(255,255,255,.72);max-width:44ch}
+.hero__rule{height:1px;background:rgba(255,255,255,.2);margin:clamp(22px,2.6vw,34px) 0 clamp(18px,2.1vw,26px)}
+.hero__row{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,1.8vw,26px)}
+
+/* proof cluster */
+.proof{display:flex;align-items:center;gap:13px;min-width:0}
+.proof__avs{display:flex;flex:none}
+.proof__avs img{width:clamp(36px,2.8vw,44px);height:clamp(36px,2.8vw,44px);border-radius:50%;object-fit:cover;filter:grayscale(1) brightness(.92);border:2px solid rgba(10,11,14,.72);margin-left:-14px}
+.proof__avs img:first-child{margin-left:0}
+.proof__txt b{display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:600;font-size:clamp(14px,1.05vw,17px);letter-spacing:-.01em}
+.proof__txt b svg{width:13px;height:13px;color:var(--primary)}
+.proof__txt span{display:block;font-size:.82rem;line-height:1.4;color:rgba(255,255,255,.7)}
+
+/* hero project card */
+.hero__card{position:relative;flex:none;width:clamp(268px,22.6vw,402px)}
+.hcard{position:relative;padding:10px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:rgba(16,9,8,.32);-webkit-backdrop-filter:blur(12px) saturate(130%);backdrop-filter:blur(12px) saturate(130%)}
+.hcard__view{position:relative;overflow:hidden;border-radius:11px}
+.hcard__track{display:flex;transition:transform .85s var(--ease)}
+.hslide{flex:0 0 100%;min-width:100%;position:relative;background:var(--elev)}
+.hslide img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.hcard__tag{
+  position:absolute;top:10px;left:10px;z-index:2;
+  padding:6px 11px;border-radius:7px;
+  background:rgba(8,8,10,.66);border:1px solid rgba(255,255,255,.16);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  font-family:var(--display);font-size:clamp(11px,.72vw,12.5px);letter-spacing:.01em;color:#fff;
+}
+.hcard__cap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 6px 8px}
+.hcard__cap p{font-family:var(--display);font-weight:500;font-size:clamp(16px,1.2vw,20px);letter-spacing:-.02em;line-height:1.2}
+.hcard__cap small{font-family:var(--display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);flex:none}
+.hero__nav{display:flex;justify-content:flex-end;gap:8px;margin-top:clamp(10px,1.1vw,14px)}
+.sq{display:grid;place-items:center;width:clamp(34px,2.7vw,40px);height:clamp(34px,2.7vw,40px);border-radius:10px;
+  border:1px solid rgba(255,255,255,.22);background:rgba(10,8,8,.42);color:#fff;
+  transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.sq svg{width:15px;height:15px}
+.sq:hover{background:var(--accent);border-color:transparent}
+.sq:active{transform:scale(.93)}
+
+/* full-bleed clipped wordmark + service row */
+.hero__foot{position:relative;z-index:1;width:100%;max-width:var(--max);margin:auto auto 0;padding-inline:var(--pad)}
+.hero__word{display:block;position:relative;width:100%;overflow:hidden;height:var(--wh,clamp(58px,9vw,132px))}
+.hero__word span{
+  position:absolute;left:0;top:var(--wy,0);display:block;white-space:nowrap;width:max-content;
+  font-family:var(--display);font-weight:600;font-size:clamp(150px,24vw,300px);line-height:1;letter-spacing:-.035em;color:#fff;
+  transform-origin:0 0;transform:scale(var(--k,1));
+}
+.hero__tags{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:clamp(10px,1.2vw,16px);
+  font-family:var(--display);font-size:clamp(10.5px,.78vw,13.5px);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.hero__tags i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.34);flex:none}
+.hero__tags b{font-weight:500}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.mq{background:var(--elev);border-block:1px solid var(--line-soft);padding-block:clamp(16px,2vw,26px);overflow:clip}
+.mq__row{display:flex;width:max-content;gap:clamp(14px,1.6vw,26px);animation:slide var(--sp,42s) linear infinite}
+.mq__row--rev{animation-direction:reverse}
+.mq:hover .mq__row{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.mq__row>*{flex:none}
+.mq__pic{width:clamp(130px,15vw,220px);aspect-ratio:16/10;border-radius:var(--r-sm);filter:grayscale(1) contrast(1.05);opacity:.62;transition:filter .6s var(--ease),opacity .6s var(--ease)}
+.mq__pic:hover{filter:none;opacity:1}
+.mq__txt{display:flex;align-items:center;gap:clamp(14px,1.6vw,26px);font-family:var(--display);font-weight:500;font-size:clamp(1.4rem,3.4vw,2.6rem);letter-spacing:-.035em;line-height:1;white-space:nowrap;color:var(--text)}
+.mq__txt i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.mq__txt u{text-decoration:none;color:var(--faint)}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about__grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(22px,4vw,64px);align-items:start}
+.about__sticky{position:sticky;top:calc(var(--nav-h) + 42px)}
+.about__body{display:grid;gap:clamp(14px,1.6vw,20px)}
+.about__cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(6px,1vw,14px)}
+.about__cols .fr:nth-child(1){aspect-ratio:3/4;border-radius:var(--r-lg)}
+.about__cols .fr:nth-child(2){aspect-ratio:4/5;border-radius:var(--r-lg);margin-top:clamp(22px,4vw,64px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 14px;border-radius:var(--pill);border:1px solid var(--line-soft);background:var(--sheet);font-family:var(--display);font-size:clamp(12px,.85vw,13.5px);letter-spacing:.02em;color:var(--muted);transition:color .4s,border-color .4s,background .4s}
+.chip:hover{color:var(--text);border-color:rgba(255,255,255,.22);background:var(--sheet-2)}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-soft)}
+.stats>div{padding:clamp(22px,3vw,44px) clamp(14px,2vw,28px);border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
+.stats>div:last-child{border-right:0}
+.stats>div::before{content:"";position:absolute;inset:auto auto -60% 20%;width:60%;aspect-ratio:1;background:radial-gradient(circle,rgba(248,206,4,.14),rgba(255,65,18,.12) 46%,transparent 68%);opacity:0;transition:opacity .6s}
+.stats>div:hover::before{opacity:1}
+.stats b{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,8.4vw,7rem);line-height:.86;letter-spacing:-.055em;display:block}
+.stats p{margin-top:12px;color:var(--muted);max-width:26ch;font-size:.92rem}
+.stats .tag{display:block;margin-bottom:14px;font-family:var(--display);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+
+/* ============================================================
+   WORK
+   ============================================================ */
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px;margin-bottom:clamp(26px,4vw,56px)}
+#work{padding-block:clamp(80px,10.5vw,140px) clamp(70px,9vw,120px)}
+.whead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,30ch);align-items:end;gap:clamp(16px,2.4vw,40px);margin-bottom:clamp(30px,4.4vw,64px)}
+.whead .eyebrow{margin-bottom:clamp(12px,1.4vw,20px)}
+.whead .dsp{font-size:clamp(2.1rem,6.2vw,5.2rem);line-height:.88;letter-spacing:-.05em}
+.whead .lede{font-size:clamp(.95rem,1.15vw,1.1rem);line-height:1.55;color:var(--muted)}
+.widx{border-top:1px solid var(--line)}
+.wrow{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"no ttl cat ico";align-items:center;gap:clamp(12px,1.7vw,30px);padding:clamp(15px,2.1vw,28px) 0;border-bottom:1px solid var(--line);color:inherit;transition:opacity .5s var(--ease)}
+.wrow::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--primary);transform:scaleX(0);transform-origin:left center;transition:transform .6s var(--ease);pointer-events:none}
+.wrow__no{grid-area:no;font-family:var(--display);font-size:clamp(11px,.8vw,13px);font-weight:500;letter-spacing:.18em;color:var(--faint);transition:color .45s var(--ease)}
+.wrow__ttl{grid-area:ttl;font-family:var(--display);font-weight:500;font-size:clamp(1.45rem,4.3vw,3.35rem);line-height:.95;letter-spacing:-.045em;color:rgba(255,255,255,.76);transition:color .5s var(--ease),transform .6s var(--ease)}
+.wrow__cat{grid-area:cat;font-size:clamp(.76rem,.92vw,.92rem);color:var(--faint);white-space:nowrap;transition:color .45s var(--ease)}
+.wrow__ico,.wrow__go{grid-area:ico;display:grid;place-items:center;width:clamp(26px,2.5vw,36px);height:clamp(26px,2.5vw,36px);color:var(--accent);opacity:.5;transition:opacity .45s var(--ease),transform .5s var(--ease)}
+.wrow__go{border:0;background:none;padding:0;cursor:inherit}
+.wrow__ico svg,.wrow__go svg{width:60%;height:60%}
+.wrow--btn{cursor:pointer}
+.wrow__media{display:none}
+.wrow__tag{display:none}
+.wrow--ext:focus-visible{outline-offset:6px}
+@media (hover:hover) and (min-width:1024px){
+  .widx:hover .wrow:not(:hover){opacity:.46}
+  .wrow:hover::after,.wrow:focus-within::after{transform:scaleX(1)}
+  .wrow:hover .wrow__ttl,.wrow:focus-within .wrow__ttl{color:#fff;transform:translateX(clamp(6px,.9vw,16px))}
+  .wrow:hover .wrow__no,.wrow:focus-within .wrow__no{color:var(--primary)}
+  .wrow:hover .wrow__cat,.wrow:focus-within .wrow__cat{color:var(--muted)}
+  .wrow:hover .wrow__ico,.wrow:hover .wrow__go,.wrow:focus-within .wrow__ico,.wrow:focus-within .wrow__go{opacity:1;transform:translate(3px,-3px)}
+  .wrow__media{display:block;position:fixed;left:0;top:0;z-index:90;width:clamp(188px,18vw,258px);aspect-ratio:100/117;overflow:hidden;border-radius:2px;pointer-events:none;opacity:0;transform:translate3d(-9999px,-9999px,0);transition:opacity .4s var(--ease);box-shadow:0 26px 60px rgba(0,0,0,.55)}
+  .wrow.on .wrow__media{opacity:1}
+  .wrow__media img{width:100%;height:100%;object-fit:cover}
+  .wrow__tag{display:block;position:absolute;left:9px;bottom:9px;padding:3px 8px;border-radius:1px;background:rgba(12,14,18,.62);font-family:var(--display);font-size:12px;letter-spacing:-.01em;color:#fff}
+}
+@media (max-width:1023px),(hover:none){
+  .whead{grid-template-columns:minmax(0,1fr)}
+  .wrow{grid-template-columns:clamp(70px,19vw,110px) minmax(0,1fr) auto;grid-template-areas:"pic no ico" "pic ttl ico" "pic cat ico";gap:6px 14px;padding:clamp(14px,3vw,22px) 0}
+  .wrow__ico,.wrow__go{width:clamp(22px,6vw,32px);height:clamp(22px,6vw,32px);opacity:.8}
+  .wrow__media{grid-area:pic;display:block;align-self:start;width:clamp(70px,19vw,110px);aspect-ratio:100/117;overflow:hidden;border-radius:2px}
+  .wrow__media img{width:100%;height:100%;object-fit:cover}
+}
+@media (max-width:600px){
+  .wrow{grid-template-columns:clamp(58px,20vw,84px) minmax(0,1fr) auto;gap:4px 12px}
+  .wrow__ttl{font-size:clamp(1.3rem,7.4vw,2rem)}
+  .wrow__media{width:clamp(58px,20vw,84px)}
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.sect--svc{padding-block:0}
+.svc{display:grid;grid-template-columns:38.7% minmax(0,1fr);align-items:stretch}
+.svc__side{border-right:1px solid var(--line);padding-block:clamp(64px,9vw,168px);padding-inline:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)),11.2vw) clamp(20px,5.2vw,96px)}
+.svc__panel{position:sticky;top:calc(var(--nav-h) + clamp(18px,3.4vw,56px));margin-top:clamp(48px,9.3vw,132px);max-width:440px}
+.svc__panel.anim{animation:svcIn .55s var(--ease)}
+@keyframes svcIn{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
+.svc__shot{aspect-ratio:5/4}
+.svc__cat{margin-top:clamp(18px,2.9vw,46px);font-size:clamp(13px,1.15vw,19px);color:var(--muted)}
+.svc__desc{margin-top:8px;font-weight:500;font-size:clamp(1.1rem,1.62vw,1.7rem);line-height:1.25;letter-spacing:-.02em;color:var(--text);max-width:30ch;text-wrap:pretty}
+.svc__tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,1.6vw,30px)}
+.svc__tags:empty{display:none}
+
+.svc__list{padding-block:clamp(64px,9vw,168px);padding-inline:clamp(20px,5vw,90px) max(clamp(20px,5.3vw,110px),calc((100vw - var(--max))/2))}
+.svc__list .eyebrow{color:var(--primary);letter-spacing:.1em}
+.svc__list .eyebrow::before{display:none}
+.svc__say{margin:clamp(14px,1.4vw,20px) 0 clamp(34px,4.5vw,60px);max-width:44ch;color:var(--muted);font-size:clamp(.9rem,1vw,1rem)}
+.svc__btn{
+  position:relative;display:flex;align-items:flex-start;gap:.111em;
+  width:100%;text-align:left;
+  padding:.093em 0 .185em;
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(1.7rem,4.6vw,4.6rem);line-height:.88;letter-spacing:-.07em;
+  color:rgba(255,255,255,.17);
+  transition:color .5s var(--ease);
+}
+.svc__txt{flex:1 0 0;min-width:1px;text-wrap:balance}
+/* keeps the [01] cap riding the title cap at every size (reference: -0.7px) */
+.svc__num{flex:none;padding-top:clamp(.66px,calc(.533vw - 2.12px),.42em);line-height:1;font-size:max(11px,.185em);font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.4);transition:color .5s var(--ease)}
+.svc__btn:hover,.svc__row.on .svc__btn{color:#fff}
+.svc__btn:hover .svc__num,.svc__row.on .svc__num{color:var(--accent)}
+/* a size up from 1280, where the list column still keeps every line unbroken */
+@media (min-width:1280px){
+  .svc__btn{font-size:clamp(1.8rem,4.95vw,5.15rem)}
+  .svc__num{padding-top:clamp(.66px,calc(.574vw - 1.78px),.452em)}
+}
+@media (max-width:1279px){
+  .svc{grid-template-columns:42% minmax(0,1fr)}
+}
+@media (max-width:1023px){
+  .svc{grid-template-columns:1fr}
+  .svc__list{order:1;padding:clamp(52px,8vw,84px) 0}
+  .svc__list .eyebrow,.svc__say{padding-inline:var(--pad)}
+  .svc__side{order:2;padding:0;border-right:0}
+  .svc__panel{position:static;margin-top:0;max-width:none;padding:clamp(4px,1vw,10px) var(--pad) clamp(24px,4vw,36px)}
+  .svc__row{border-bottom:1px solid var(--line-soft)}
+  .svc__btn{padding:clamp(15px,2.4vw,22px) var(--pad);font-size:clamp(1.5rem,6.2vw,2.6rem)}
+  .svc__shot{aspect-ratio:16/10}
+}
+@media (max-width:767px){
+  .svc__desc{font-size:1.08rem;line-height:1.32}
+  .svc__tags{gap:8px}
+}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.proc__head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:end;margin-bottom:clamp(34px,5.6vw,80px)}
+.proc__title{grid-column:span 2;min-width:0}
+.quote{font-family:var(--body);font-size:clamp(1rem,1.32vw,1.19rem);line-height:1.4;color:var(--text);text-wrap:pretty}
+.proc__steps{--pin:clamp(84px,calc(var(--nav-h) + 16vh),260px);display:grid;gap:18px}
+.step{position:sticky;top:var(--pin);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pcard{
+  display:flex;flex-direction:column;grid-column:var(--c,1);min-width:0;
+  min-height:min(clamp(390px,34.7vw,500px),calc(100vh - var(--pin) - 32px));
+  padding:clamp(26px,2.8vw,40px) clamp(22px,2.4vw,32px);
+  border-radius:2px;background:var(--elev);color:#fff;
+}
+.pcard--primary{background:var(--primary);color:var(--on-primary)}
+.pcard__num{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(1.2rem,1.9vw,1.9rem);line-height:1;letter-spacing:.02em;
+  min-height:clamp(34px,3.4vw,60px);color:var(--primary);
+}
+.pcard--primary .pcard__num{color:rgba(18,20,10,.58)}
+.pcard h4{margin-top:clamp(14px,1.7vw,24px);font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.4vw,2.13rem);line-height:1.15;letter-spacing:-.025em}
+.pcard p{margin-top:auto;padding-top:clamp(16px,1.8vw,24px);font-size:clamp(.98rem,1.34vw,1.19rem);line-height:1.4}
+.reel{position:relative;width:min(100%,340px);margin-top:clamp(16px,1.8vw,24px);border-radius:2px;overflow:hidden;background:var(--bg);aspect-ratio:16/9}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.reel:hover img{transform:scale(1.05)}
+.reel button{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(180deg,rgba(12,14,18,.14),rgba(12,14,18,.56))}
+.reel i{display:grid;place-items:center;width:clamp(34px,3vw,44px);height:clamp(34px,3vw,44px);border-radius:50%;background:var(--accent);transition:transform .5s var(--ease)}
+.reel button:hover i{transform:scale(1.08)}
+.reel button span{font-family:var(--display);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.reel svg{width:13px;height:13px;margin-left:2px}
+.reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tst__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(18px,2.4vw,30px)}
+.tst__nav{display:flex;gap:8px}
+.tst.fit .tst__nav,.tst.fit .tst__meta{display:none}
+.tst__nav button{display:grid;place-items:center;width:clamp(40px,4vw,52px);height:clamp(40px,4vw,52px);border-radius:50%;border:1px solid var(--line);color:var(--muted);transition:background .4s,color .4s,border-color .4s,transform .4s var(--ease)}
+.tst__nav button:hover:not(:disabled){background:var(--text);color:var(--bg);border-color:var(--text)}
+.tst__nav button:disabled{opacity:.3;cursor:not-allowed}
+.tst__nav svg{width:15px;height:15px}
+.tst__nav .nx svg{transform:rotate(-45deg)}
+.tst__nav .pv svg{transform:rotate(135deg)}
+.track{display:flex;gap:clamp(12px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;cursor:grab;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track.drag{cursor:grabbing;scroll-snap-type:none}
+.tcard{flex:0 0 clamp(280px,84vw,560px);scroll-snap-align:start;display:grid;gap:clamp(14px,1.6vw,20px);padding:clamp(20px,2.4vw,34px);border-radius:var(--r-lg);border:1px solid var(--line-soft);background:var(--elev)}
+.tcard blockquote{font-family:var(--display);font-weight:400;font-size:clamp(1.06rem,1.7vw,1.5rem);line-height:1.36;letter-spacing:-.03em}
+.tcard__who{display:flex;align-items:center;gap:12px;padding-top:clamp(14px,1.6vw,20px);border-top:1px solid var(--line-soft)}
+.tcard__who .tcard__av{position:relative;display:grid;place-items:center;overflow:hidden;width:48px;height:48px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-family:var(--display);font-weight:600;font-size:15px;flex:none}
+.tcard__av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.tcard__who b{display:block;font-weight:600;font-size:.94rem}
+.tcard__who span{display:block;font-size:.82rem;color:var(--faint)}
+.stars{display:flex;gap:3px;color:var(--primary)}
+.stars svg{width:15px;height:15px}
+.tst__meta{display:flex;align-items:center;gap:10px;color:var(--faint);font-size:.86rem}
+.dots{display:flex;gap:6px;margin-top:16px}
+.dots button{width:24px;height:3px;border-radius:2px;background:var(--line);transition:background .4s,width .4s var(--ease)}
+.dots button[aria-current=true]{background:var(--accent);width:44px}
+
+/* ============================================================
+   IMPACT — CONTACT SHEET
+   ============================================================ */
+.film{display:grid;gap:clamp(10px,1.5vw,20px);overflow:hidden;padding-block:clamp(2px,.8vw,8px)}
+.strip{position:relative;padding-block:clamp(16px,1.9vw,24px)}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:10px;background-image:radial-gradient(circle at 8px 5px,rgba(255,255,255,.13) 3.3px,transparent 3.5px);background-size:36px 10px;background-repeat:repeat-x;pointer-events:none}
+.strip::before{top:2px}
+.strip::after{bottom:2px}
+.film__track{position:relative;display:flex;gap:clamp(12px,1.3vw,18px);width:max-content;animation:filmroll linear infinite;will-change:transform}
+@keyframes filmroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(var(--shift,0px) * -1),0,0)}}
+.strip--rev .film__track{animation-direction:reverse}
+.film:hover .film__track,.film:focus-within .film__track,.film.idle .film__track{animation-play-state:paused}
+.frame{position:relative;flex:0 0 auto;margin:0;width:var(--fw)}
+.frame button{position:relative;display:block;width:100%;aspect-ratio:var(--ar);overflow:hidden;border-radius:2px;background:var(--elev);transition:transform .6s var(--ease)}
+.frame button::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--line-soft);transition:box-shadow .5s}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.frame:hover button{transform:translateY(-6px)}
+.frame:hover button img{transform:scale(1.05)}
+.frame:hover button::after{box-shadow:inset 0 0 0 1px rgba(255,65,18,.55)}
+.frame__no{position:absolute;left:8px;top:8px;z-index:2;padding:3px 7px;border-radius:3px;background:rgba(8,9,12,.78);font-family:var(--display);font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--primary)}
+.frame figcaption{margin-top:10px;font-family:var(--display);font-size:clamp(10.5px,.74vw,12.5px);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);transition:color .45s var(--ease)}
+.frame figcaption::before{content:"";display:inline-block;width:14px;height:1px;background:currentColor;vertical-align:middle;margin-right:8px;opacity:.7}
+.frame:hover figcaption{color:var(--accent)}
+.f-tall{--fw:clamp(156px,21vw,262px);--ar:3/4}
+.f-wide{--fw:clamp(216px,29vw,390px);--ar:16/10}
+.f-sq{--fw:clamp(150px,19vw,236px);--ar:1/1}
+.film__foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:clamp(14px,1.8vw,24px)}
+.film__hint{font-family:var(--display);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.film__hint i{display:inline-block;width:22px;height:1px;background:var(--primary);vertical-align:middle;margin-right:9px}
+@media (prefers-reduced-motion:reduce), (hover:none){
+  .film__track{animation:none!important;transform:none!important}
+  .strip{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:thin}
+  .frame{scroll-snap-align:center}
+}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:180;display:grid;place-items:center;gap:16px;padding:clamp(14px,4vw,48px);background:rgba(8,9,12,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+.lb.on{opacity:1;pointer-events:auto}
+.lb[hidden]{display:none}
+.lb.on{opacity:1;visibility:visible}
+.lb img{max-width:min(1100px,92vw);max-height:76vh;object-fit:contain;border-radius:var(--r-md);box-shadow:0 40px 120px -40px #000}
+.lb p{font-family:var(--display);font-size:15px;letter-spacing:.02em;color:var(--muted);text-align:center}
+.lb__x{position:absolute;top:clamp(12px,3vw,28px);right:clamp(12px,3vw,28px);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);transition:background .4s}
+.lb__x:hover{background:var(--sheet-2)}
+.lb__x svg{width:16px;height:16px}
+
+/* ============================================================
+   SHARED — SUB-SECTION LABEL
+   ============================================================ */
+.subhead{display:flex;align-items:center;gap:14px;margin:clamp(26px,3.2vw,46px) 0 clamp(12px,1.5vw,18px);font-family:var(--display);font-weight:500;font-size:clamp(10.5px,.74vw,12px);letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.subhead i{flex:1;height:1px;background:var(--line-soft)}
+
+/* ============================================================
+   CLIENTS + CASE RESULTS
+   ============================================================ */
+.clwall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden}
+.clc{display:grid;gap:clamp(6px,.7vw,10px);padding:clamp(18px,2.3vw,32px);background:var(--bg);transition:background .55s var(--ease)}
+.clc:hover{background:var(--elev)}
+.clc__no{font-family:var(--display);font-weight:500;font-size:clamp(10px,.68vw,11.5px);letter-spacing:.2em;color:var(--faint)}
+.clc__nm{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,1.75vw,1.6rem);line-height:1.06;letter-spacing:-.035em}
+.clc__tp{font-size:clamp(.76rem,.85vw,.86rem);line-height:1.45;color:var(--faint)}
+.cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.7vw,24px);margin-top:clamp(16px,2vw,26px)}
+.csc{display:flex;flex-direction:column;gap:clamp(11px,1.25vw,16px);padding:clamp(13px,1.4vw,19px);border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--elev);transition:border-color .5s var(--ease),transform .7s var(--ease)}
+.csc:hover{border-color:rgba(255,255,255,.17);transform:translateY(-5px)}
+.csc__fr{display:block;width:100%;padding:0;border:0;text-align:left;color:inherit;cursor:pointer;aspect-ratio:16/10;border-radius:var(--r-md)}
+.csc:hover .csc__fr::after,.blc:hover .blc__fr::after{box-shadow:inset 0 0 0 1px rgba(255,65,18,.5)}
+.csc__plate{display:grid;place-content:center;justify-items:center;gap:8px;aspect-ratio:16/10;padding:14px;border-radius:var(--r-md);background:radial-gradient(120% 130% at 50% 0,rgba(248,206,4,.1),transparent 62%),var(--bg);box-shadow:inset 0 0 0 1px var(--line-soft)}
+.csc__plate b{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.6vw,2.1rem);letter-spacing:-.04em;line-height:1}
+.csc__plate small{font-family:var(--display);font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.csc__hd{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.csc__nm{font-family:var(--display);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.72rem);line-height:1.05;letter-spacing:-.04em}
+.csc__no{font-family:var(--display);font-weight:500;font-size:clamp(10px,.7vw,11.5px);letter-spacing:.2em;color:var(--faint)}
+.csc__tp{font-size:.85rem;line-height:1.45;color:var(--faint)}
+.csc__q{font-family:var(--display);font-size:clamp(.98rem,1.15vw,1.12rem);line-height:1.42;letter-spacing:-.02em;color:var(--muted)}
+.res{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(10px,1.3vw,16px);margin-top:auto;padding-top:clamp(11px,1.2vw,15px);border-top:1px solid var(--line-soft)}
+.res__k{font-family:var(--display);font-weight:500;font-size:clamp(10px,.68vw,11.5px);letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.res__v{font-size:.87rem;line-height:1.45;color:var(--muted)}
+
+/* ============================================================
+   PACKAGES
+   ============================================================ */
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.7vw,24px)}
+.pkc{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.15vw,14px);padding:clamp(18px,2vw,30px);border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--elev);transition:border-color .5s var(--ease)}
+.pkc::before{content:"";position:absolute;left:clamp(18px,2vw,30px);right:clamp(18px,2vw,30px);top:-1px;height:1px;background:var(--primary);opacity:0;transition:opacity .5s var(--ease)}
+.pkc:hover{border-color:rgba(255,255,255,.17)}
+.pkc:hover::before{opacity:.85}
+.pkc__no{font-family:var(--display);font-weight:500;font-size:clamp(10px,.68vw,11.5px);letter-spacing:.2em;color:var(--faint)}
+.pkc__nm{font-family:var(--display);font-weight:500;font-size:clamp(1.12rem,1.65vw,1.5rem);line-height:1.1;letter-spacing:-.03em}
+.pkc__pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 9px;font-family:var(--display);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1;letter-spacing:-.05em;color:rgba(255,255,255,.88)}
+.pkc__pr em{font-family:var(--body);font-style:normal;font-size:.8rem;letter-spacing:0;color:var(--faint)}
+.pkc__list{display:grid;gap:9px;margin:clamp(5px,.7vw,9px) 0 0;padding-top:clamp(13px,1.4vw,17px);border-top:1px solid var(--line-soft)}
+.pkc__list li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:start;font-size:.89rem;line-height:1.5;color:var(--muted)}
+.pkc__list li::before{content:"";width:14px;height:14px;margin-top:.24em;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(248,206,4,.42)}
+.pkc .btn{margin-top:clamp(6px,.9vw,12px);align-self:flex-start}
+
+/* ============================================================
+   TOOLS & PLATFORMS
+   ============================================================ */
+.pf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden}
+.pfc{display:flex;align-items:center;gap:14px;padding:clamp(16px,1.9vw,24px);background:var(--bg);transition:background .5s var(--ease)}
+.pfc:hover{background:var(--elev)}
+.pfc__ico{flex:none;display:grid;place-items:center;width:clamp(38px,3.2vw,46px);height:clamp(38px,3.2vw,46px);border-radius:50%;border:1px solid var(--line);color:var(--primary);transition:background .45s var(--ease),color .45s,border-color .45s}
+.pfc:hover .pfc__ico{background:var(--primary);color:var(--on-primary);border-color:transparent}
+.pfc__ico svg{width:17px;height:17px}
+.pfc__t{min-width:0}
+.pfc__nm{display:block;font-family:var(--display);font-weight:500;font-size:clamp(1rem,1.25vw,1.18rem);letter-spacing:-.02em;line-height:1.2}
+.pfc__hd{display:block;margin-top:3px;font-size:.79rem;line-height:1.4;color:var(--faint)}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.5vw,20px);margin-top:clamp(14px,1.8vw,22px)}
+.stc{display:grid;gap:8px;padding:clamp(16px,1.9vw,24px);border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--elev)}
+.stc__no{font-family:var(--display);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--faint)}
+.stc__nm{font-family:var(--display);font-weight:500;font-size:clamp(1rem,1.35vw,1.22rem);letter-spacing:-.03em;line-height:1.15}
+.stc__tp{font-size:.82rem;line-height:1.45;color:var(--faint)}
+
+/* ============================================================
+   RECOGNITION
+   ============================================================ */
+.aw{display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:clamp(18px,2.6vw,40px);align-items:start}
+.aw__flag{display:grid;gap:10px;align-content:start;padding:clamp(18px,2.2vw,30px);border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--elev)}
+.aw__flag .num{display:block;font-family:var(--display);font-weight:500;font-size:clamp(3rem,6.4vw,5.2rem);line-height:.9;letter-spacing:-.06em;color:var(--primary)}
+.aw__flag b{display:block;font-family:var(--display);font-weight:500;font-size:1rem;letter-spacing:-.01em;margin-top:4px}
+.aw__flag p{font-size:.82rem;line-height:1.5;color:var(--faint)}
+.awl{border-top:1px solid var(--line)}
+.awr{display:grid;grid-template-columns:clamp(56px,6.4vw,104px) minmax(0,1.35fr) minmax(0,1fr);gap:clamp(12px,2vw,30px);align-items:center;padding:clamp(14px,1.8vw,22px) clamp(2px,.8vw,10px);border-bottom:1px solid var(--line-soft);transition:background .5s var(--ease)}
+.awr:hover{background:var(--sheet)}
+.awr__yr{font-family:var(--display);font-weight:500;font-size:clamp(.88rem,1.05vw,1.02rem);letter-spacing:.02em;color:var(--faint)}
+.awr__nm{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,1.55vw,1.45rem);line-height:1.15;letter-spacing:-.03em}
+.awr__by{font-size:.87rem;line-height:1.45;color:var(--faint)}
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+.tm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.7vw,24px)}
+.tmc{display:grid;gap:clamp(10px,1.1vw,14px)}
+.tmc__ph{aspect-ratio:4/3;border-radius:var(--r-md)}
+.tmc__mn{font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,1.5vw,1.35rem);letter-spacing:-.03em;line-height:1.1}
+.tmc__rl{font-size:.82rem;line-height:1.4;color:var(--faint)}
+.tmc__ln{font-size:.85rem;line-height:1.55;color:var(--muted)}
+
+/* ============================================================
+   BLOG
+   ============================================================ */
+.bl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.blc{display:flex;flex-direction:column;gap:clamp(10px,1.2vw,15px)}
+.blc__fr{display:block;width:100%;aspect-ratio:3/2;border-radius:var(--r-md)}
+.blc__tg{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.blc__tg i{flex:1;height:1px;background:var(--line-soft)}
+.blc__ttl{font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,1.6vw,1.42rem);line-height:1.14;letter-spacing:-.03em}
+.blc__ttl a{transition:color .4s var(--ease)}
+.blc__ttl a:hover{color:var(--primary)}
+.blc p{font-size:.9rem;line-height:1.6;color:var(--muted)}
+.blc__go{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:clamp(10px,1.1vw,14px);font-family:var(--display);font-weight:500;font-size:.92rem;letter-spacing:-.01em;color:var(--accent)}
+.blc__go svg{width:14px;height:14px;transition:transform .45s var(--ease)}
+.blc__go:hover svg{transform:translate(2px,-2px)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,64px);align-items:start}
+.faq__side{position:sticky;top:calc(var(--nav-h) + clamp(16px,3vw,40px));display:grid;gap:clamp(12px,1.4vw,18px);align-content:start}
+.faq__say{display:grid;gap:6px;padding:clamp(15px,1.7vw,20px);border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--elev)}
+.faq__say b{font-family:var(--display);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.faq__say p{font-size:.9rem;line-height:1.55;color:var(--muted)}
+.qa{border-bottom:1px solid var(--line-soft)}
+.qa:first-child{border-top:1px solid var(--line)}
+.qa>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(14px,2vw,26px);align-items:center;padding:clamp(15px,1.8vw,23px) clamp(2px,.8vw,10px);cursor:pointer;list-style:none;transition:color .4s var(--ease)}
+.qa>summary::-webkit-details-marker{display:none}
+.qa>summary h3{font-family:var(--display);font-weight:500;font-size:clamp(1.02rem,1.55vw,1.4rem);line-height:1.25;letter-spacing:-.035em}
+.qa>summary:hover{color:var(--primary)}
+.qa__ic{position:relative;flex:none;display:grid;place-items:center;width:clamp(30px,2.6vw,38px);height:clamp(30px,2.6vw,38px);border-radius:50%;border:1px solid var(--line);color:var(--text);transition:background .45s var(--ease),color .45s,border-color .45s,transform .5s var(--ease)}
+.qa__ic::before,.qa__ic::after{content:"";position:absolute;background:currentColor;transition:transform .45s var(--ease)}
+.qa__ic::before{width:13px;height:1.5px}
+.qa__ic::after{width:1.5px;height:13px}
+.qa[open]>summary{color:var(--primary)}
+.qa[open] .qa__ic{background:var(--primary);border-color:transparent;color:var(--on-primary);transform:rotate(45deg)}
+.qa__b{padding:0 clamp(2px,.8vw,10px) clamp(16px,1.8vw,24px);max-width:66ch}
+.qa__b p{font-size:clamp(.92rem,1.02vw,1.02rem);line-height:1.68;color:var(--muted)}
+.qa__b p+p{margin-top:.85em}
+@media (max-width:1023px){
+  .clwall,.pf{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pk,.st,.bl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tm{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .aw,.faq{grid-template-columns:minmax(0,1fr)}
+  .aw__flag{display:flex;align-items:baseline;gap:clamp(10px,2.6vw,24px);flex-wrap:wrap}
+  .aw__flag b{margin-top:0}
+  .faq__side{position:static}
+}
+@media (max-width:767px){
+  .cs,.pk,.st,.bl{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .clwall,.pf{grid-template-columns:minmax(0,1fr)}
+  .tm{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .awr{grid-template-columns:minmax(0,1fr);gap:5px;padding-bottom:clamp(16px,4.4vw,22px)}
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{position:relative;overflow:hidden;background:var(--elev);border-block:1px solid var(--line-soft);text-align:center;padding-block:clamp(56px,8vw,132px)}
+.cta__glow{position:absolute;left:50%;bottom:-58%;transform:translateX(-50%);width:min(1000px,130%);aspect-ratio:1;background:radial-gradient(circle,rgba(248,206,4,.15),rgba(255,65,18,.12) 44%,transparent 66%);pointer-events:none}
+.cta .wrap{position:relative;z-index:1}
+.cta h2{max-width:16ch;margin-inline:auto}
+.cta .lede{margin:clamp(14px,1.6vw,22px) auto 0;max-width:46ch}
+.cta__acts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,2.6vw,36px)}
+.cta__mq{margin-top:clamp(30px,4vw,60px);--sp:36s}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.ctc{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(24px,4vw,64px)}
+.info{display:grid;gap:0;border-top:1px solid var(--line-soft)}
+.info>div{display:grid;grid-template-columns:clamp(88px,10vw,132px) minmax(0,1fr);gap:12px;padding:clamp(14px,1.6vw,22px) 0;border-bottom:1px solid var(--line-soft);align-items:start}
+.info dt,.info .k{font-family:var(--display);font-size:clamp(11px,.78vw,12.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:3px}
+.info dd,.info .v{font-size:clamp(.98rem,1.1vw,1.12rem);line-height:1.4}
+.info .v a{transition:color .4s}
+.info .v a:hover{color:var(--accent)}
+.form{display:grid;gap:clamp(14px,1.6vw,20px);padding:clamp(20px,2.6vw,38px);border-radius:var(--r-lg);border:1px solid var(--line-soft);background:var(--elev)}
+.fld{display:grid;gap:8px}
+.fld label{font-family:var(--display);font-size:clamp(11px,.78vw,12.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.fld input,.fld textarea{
+  width:100%;padding:15px 18px;border-radius:var(--r-md);
+  background:rgba(255,255,255,.03);border:1px solid var(--line-soft);
+  color:var(--text);font-family:var(--body);font-size:1rem;line-height:1.5;
+  transition:border-color .4s var(--ease),background .4s,box-shadow .4s;
+}
+.fld textarea{min-height:148px;resize:vertical}
+.fld input::placeholder,.fld textarea::placeholder{color:rgba(255,255,255,.28)}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.055);box-shadow:0 0 0 4px rgba(255,65,18,.1)}
+.fld .err{font-size:.8rem;color:#ff8f7a;min-height:1.1em;opacity:0;transform:translateY(-3px);transition:opacity .3s,transform .3s}
+.fld.bad input,.fld.bad textarea{border-color:rgba(255,110,80,.6)}
+.fld.bad .err{opacity:1;transform:none}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,20px)}
+.form__note{font-size:.82rem;color:var(--faint)}
+.form__status{font-size:.9rem;color:var(--muted);min-height:1.3em}
+.form__status.ok{color:#9fe8b2}
+@media (max-width:767px){.form__row{grid-template-columns:1fr}}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{border-top:1px solid var(--line-soft);padding-top:clamp(34px,4.6vw,72px);overflow:clip}
+.ftr__grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,44px);padding-bottom:clamp(30px,4vw,60px)}
+.ftr h4{font-family:var(--display);font-size:clamp(11px,.78vw,12.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+.ftr ul{display:grid;gap:10px}
+.ftr li a,.ftr li span{font-size:.94rem;color:var(--muted);transition:color .35s}
+.ftr li a:hover{color:var(--text)}
+.ftr__brand{display:grid;gap:16px;max-width:38ch}
+.ftr__soc{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.ftr__soc a{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-soft);color:var(--muted);transition:color .4s,background .4s,border-color .4s,transform .4s var(--ease)}
+.ftr__soc a:hover{color:#fff;background:var(--accent);border-color:var(--accent);transform:translateY(-3px)}
+.ftr__soc svg{width:17px;height:17px}
+.ftr__word{display:block;width:100%;height:auto;padding-block:clamp(6px,1.2vw,16px)}
+.ftr__word text{
+  font-family:var(--display);font-weight:600;font-size:132px;
+  fill:transparent;stroke:rgba(255,255,255,.18);stroke-width:1px;
+  transition:stroke .8s var(--ease),fill .8s var(--ease);
+}
+.ftr__word:hover text{stroke:rgba(248,206,4,.52);fill:rgba(248,206,4,.07)}
+.ftr__bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:clamp(18px,2vw,26px);border-top:1px solid var(--line-soft);font-size:.84rem;color:var(--faint)}
+.ftr__bar>div{display:flex;flex-wrap:wrap;gap:6px 18px}
+.totop{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);letter-spacing:.02em;color:var(--muted);transition:color .4s}
+.totop:hover{color:#fff}
+.totop svg{width:13px;height:13px;transition:transform .4s var(--ease)}
+.totop:hover svg{transform:translateY(-3px)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1023px){
+  .hero__main{flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
+  .hero__copy{max-width:100%;flex:1 1 100%}
+  .hero__card{width:min(420px,100%);margin-left:auto}
+  .hero__tags{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;justify-content:start}
+  .hero__tags i{display:none}
+  .about__grid,.ctc{grid-template-columns:1fr}
+  .proc__head,.step{grid-template-columns:1fr}
+  .proc__title{grid-column:auto}
+  .proc__steps{gap:clamp(16px,2.4vw,24px)}
+  .step{position:static}
+  .pcard{grid-column:auto;min-height:0}
+  .quote{max-width:52ch}
+  .about__sticky{position:static}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats>div:nth-child(2n){border-right:0}
+  .stats>div:last-child{grid-column:span 2}
+  .ftr__grid{grid-template-columns:1fr 1fr}
+  .about__cols .fr:nth-child(2){margin-top:clamp(16px,5vw,48px)}
+}
+@media (max-width:767px){
+  :root{--nav-h:58px}
+  .hero{padding-top:clamp(84px,24vw,120px)}
+  .hero__card{margin-left:0;width:100%}
+  .hero__rule{margin-block:clamp(18px,5vw,26px) clamp(16px,4.4vw,22px)}
+  .hero__row{gap:14px 18px}
+  .hero__word span{font-size:clamp(110px,30vw,180px)}
+  .hero__tags{grid-template-columns:1fr 1fr;gap:8px 12px;font-size:10.5px;letter-spacing:.12em}
+  .stats{grid-template-columns:1fr}
+  .stats>div{border-right:0}
+  .ftr__grid{grid-template-columns:1fr}
+}
+@media (max-width:374px){
+  .brand b{display:none}
+  .hero__row .btn{padding-left:12px}
+  .hero__row .btn__ico{width:32px;height:32px}
+  .proof{gap:10px}
+  .tcard{flex-basis:100%}
+}
+@media (hover:none){
+  [data-rv]{transition-duration:.6s}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  [data-rv]{opacity:1!important;transform:none!important;clip-path:none!important}
+  [data-rv="img"]>img{clip-path:none!important}
+  [data-rv="mask"]>span{transform:none!important}
+  [data-rv="word"] .w{opacity:1!important;transform:none!important;transition-delay:0s!important}
+  .mq__row{animation:none!important}
+}
+@media print{.nav,.sheet,.lb{display:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="#home" aria-label="Flying Leoz Media — home">
+      <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/51f0a433-4cbb-4c6e-811f-f87c9548e9ee/small_flying-leoz-logo-3-ueSxJwJUW06ji8SL.webp" alt="Flying Leoz logo" width="200" height="200">
+      <b>Flying Leoz</b>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#home" data-nav>Home</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#services" data-nav>Services</a>
+      <a href="#work" data-nav>Our Work</a>
+      <a href="#clients" data-nav>Clients</a>
+      <a href="#packages" data-nav>Packages</a>
+      <a href="#faq" data-nav>FAQ</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+    <div class="nav__cta">
+      <a class="icon-btn" href="mailto:info@flyingleoz.com" aria-label="Email Flying Leoz Media"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></a>
+      <a class="btn btn--full" href="#contact">Contact us</a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Open menu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet__lnk" href="#home" data-nav>Home <span>01</span></a>
+  <a class="sheet__lnk" href="#about" data-nav>About <span>02</span></a>
+  <a class="sheet__lnk" href="#services" data-nav>Services <span>03</span></a>
+  <a class="sheet__lnk" href="#work" data-nav>Our Work <span>04</span></a>
+  <a class="sheet__lnk" href="#clients" data-nav>Clients <span>05</span></a>
+  <a class="sheet__lnk" href="#packages" data-nav>Packages <span>06</span></a>
+  <a class="sheet__lnk" href="#faq" data-nav>FAQ <span>07</span></a>
+  <a class="sheet__lnk" href="#contact" data-nav>Contact <span>08</span></a>
+  <div class="sheet__foot">
+    <a class="btn btn--sm" href="#contact" data-nav>Get Started
+      <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+    </a>
+    <a class="ul" href="mailto:info@flyingleoz.com">info@flyingleoz.com</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="home" aria-labelledby="heroTitle">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__red"></div>
+      <div class="hero__hot"></div>
+      <div class="hero__grain"></div>
+      <div class="hero__dim"></div>
+    </div>
+
+    <div class="hero__main">
+      <div class="hero__copy">
+        <h1 id="heroTitle">
+          <span data-rv="mask"><span>Media and</span></span>
+          <span data-rv="mask" style="--d:110ms"><span>Marketing,</span></span>
+          <span data-rv="mask" style="--d:220ms"><span>Simplified.</span></span>
+        </h1>
+        <p class="hero__say" data-rv style="--d:300ms">Helping startups and established brands grow with tailored strategies.</p>
+        <div class="hero__rule" data-rv style="--d:330ms" aria-hidden="true"></div>
+        <div class="hero__row" data-rv style="--d:400ms">
+          <a class="btn btn--primary" href="#contact">Get Started
+            <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+          </a>
+          <div class="proof">
+            <div class="proof__avs" aria-hidden="true">
+              <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/b4bebae7-c6fa-4d8f-a93a-6f893d93e97a/small_about-us-flying-leoz-GTGoB6PIBCkU22Hl.webp" alt="" width="120" height="120" fetchpriority="high">
+              <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/9d598de0-c505-4ffc-b865-d3fcb53da835/small_img-20150210-wa0002-zPDVz7diw3Hw3qLW.webp" alt="" width="120" height="120" fetchpriority="high">
+              <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f418943d-a0db-4b35-b8af-19c68c7c50b2/small_01-QZqJZT9P64trEOjL.webp" alt="" width="120" height="120" fetchpriority="high">
+              <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/small_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="" width="120" height="120" fetchpriority="high">
+            </div>
+            <div class="proof__txt">
+              <b>100+ Clients <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.5l-5.9 3.2 1.3-6.6L2.5 9.5l6.6-.8z"/></svg></b>
+              <span>Trusted Globally</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__card" data-rv style="--d:180ms">
+        <div class="hcard">
+          <div class="hcard__view" id="heroSlide" aria-roledescription="carousel" aria-label="Selected Flying Leoz work">
+            <span class="hcard__tag" id="hTag" aria-hidden="true">Marketing &amp; Strategy</span>
+            <div class="hcard__track" id="hTrack">
+              <figure class="hslide" data-tag="Marketing &amp; Strategy" data-title="Brand Boost">
+                <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" alt="Brand Boost — elevating startups with tailored media campaigns" width="800" height="533" fetchpriority="high">
+              </figure>
+              <figure class="hslide" data-tag="Media Strategy" data-title="Media Magic">
+                <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" alt="Media Magic — 360-degree campaigns for established businesses" width="800" height="533" loading="lazy">
+              </figure>
+              <figure class="hslide" data-tag="Content Creation" data-title="Our Work">
+                <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="Our Work — crafting media solutions that drive real results" width="800" height="533" loading="lazy">
+              </figure>
+            </div>
+          </div>
+          <div class="hcard__cap">
+            <p id="hTitle">Brand Boost</p>
+            <small id="hIdx">01 / 03</small>
+          </div>
+        </div>
+        <div class="hero__nav">
+          <button class="sq" id="hPrev" type="button" aria-label="Previous project"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+          <button class="sq" id="hNext" type="button" aria-label="Next project"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+        </div>
+        <p role="status" aria-live="polite" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" id="hLive"></p>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <div class="hero__word" id="heroWord" aria-hidden="true"><span>Flying Leoz</span></div>
+      <div class="hero__tags">
+        <b>Marketing &amp; Strategy</b><i></i>
+        <b>Content Creation</b><i></i>
+        <b>Media Strategy</b><i></i>
+        <b>Digital Marketing</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TRUST MARQUEE ══════════════ -->
+  <section class="mq" aria-label="Trusted Partners" data-rv>
+    <div class="mq__row" style="--sp:34s" aria-hidden="true">
+      <img class="mq__pic" src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/large_flyingleoz-success-fplmncWswLCQwvnF.webp" alt="" width="440" height="275" loading="lazy">
+      <span class="mq__txt"><b>150+</b><i></i><u>Trusted Globally</u><i></i><b>100+ Clients</b><i></i><u>Media Strategy</u><i></i><b>Content Creation</b><i></i></span>
+      <img class="mq__pic" src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/large_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="" width="440" height="275" loading="lazy">
+      <span class="mq__txt"><b>150+</b><i></i><u>Trusted Globally</u><i></i><b>100+ Clients</b><i></i><u>Media Strategy</u><i></i><b>Content Creation</b><i></i></span>
+    </div>
+    <div class="mq__row mq__row--rev" style="--sp:44s;margin-top:clamp(12px,1.4vw,20px)">
+      <span class="mq__txt" aria-hidden="true"><u>Business Consultancy</u><i></i><u>Marketing &amp; Strategy</u><i></i><u>Content Creation</u><i></i><u>Media Strategy</u><i></i><u>Marketing Support</u><i></i><u>Digital Marketing Services</u><i></i></span>
+      <span class="mq__txt" aria-hidden="true"><u>Business Consultancy</u><i></i><u>Marketing &amp; Strategy</u><i></i><u>Content Creation</u><i></i><u>Media Strategy</u><i></i><u>Marketing Support</u><i></i><u>Digital Marketing Services</u><i></i></span>
+    </div>
+    <p class="visually-hidden" style="position:absolute;left:-9999px">150+ trusted globally. 100+ clients. Services: business consultancy, marketing and strategy, content creation, media strategy, marketing support, digital marketing services.</p>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section class="sect" id="about" aria-labelledby="aboutTitle">
+    <div class="wrap about__grid">
+      <div class="about__sticky">
+        <span class="eyebrow" data-rv>[ About ]</span>
+        <h2 class="dsp h-xl" id="aboutTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+          <span data-rv="mask"><span>About Flying</span></span>
+          <span data-rv="mask" style="--d:90ms"><span>Leoz Media</span></span>
+        </h2>
+        <div class="chips" data-rv style="--d:220ms;margin-top:clamp(18px,2vw,28px)">
+          <span class="chip">Business Consultancy</span>
+          <span class="chip">Marketing &amp; Strategy</span>
+          <span class="chip">Content Creation</span>
+          <span class="chip">Media Strategy</span>
+        </div>
+      </div>
+      <div class="about__body">
+        <p class="lede" data-rv>We craft tailored media and marketing solutions that help startups and established businesses grow with confidence.</p>
+        <p data-rv style="--d:80ms;color:var(--muted)">We offer full-circle media and marketing solutions crafted to elevate both fresh startups and established brands alike.</p>
+        <div class="about__cols">
+          <figure class="fr" data-rv="img" style="--d:120ms">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/b4bebae7-c6fa-4d8f-a93a-6f893d93e97a/2xlarge_about-us-flying-leoz-GTGoB6PIBCkU22Hl.webp" alt="About Flying Leoz Media" width="800" height="1050" loading="lazy">
+          </figure>
+          <figure class="fr" data-rv="img" style="--d:240ms">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/2xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="The Flying Leoz Media journey" width="800" height="1000" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ STATS ══════════════ -->
+  <section class="wrap" aria-label="Key figures">
+    <div class="stats">
+      <div data-rv>
+        <span class="tag">Reach</span>
+        <b><span class="num" data-to="150" data-suffix="+">0</span></b>
+        <p>Trusted Globally</p>
+      </div>
+      <div data-rv style="--d:100ms">
+        <span class="tag">Partnerships</span>
+        <b><span class="num" data-to="100" data-suffix="+">0</span></b>
+        <p>Clients</p>
+      </div>
+      <div data-rv style="--d:200ms">
+        <span class="tag">Winners</span>
+        <b><span class="num" data-to="15" data-suffix="">0</span></b>
+        <p>Clients Win</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WORK ══════════════ -->
+  <section class="sect" id="work" aria-labelledby="workTitle">
+    <div class="wrap">
+      <div class="whead">
+        <div>
+          <span class="eyebrow" data-rv>[Our Work]</span>
+          <h2 class="dsp" id="workTitle"><span data-rv="word">Featured Works</span></h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms">Crafting media solutions that drive real results.</p>
+      </div>
+
+      <div class="widx" id="workIdx">
+        <div class="wrow wrow--btn" data-rv="fade">
+          <span class="wrow__no">01</span>
+          <h3 class="wrow__ttl">Brand Boost</h3>
+          <span class="wrow__cat">Startup growth</span>
+          <button class="wrow__go" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/2xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" data-cap="Brand Boost — tailored media campaigns" aria-label="Open full image: Brand Boost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.25 15.25V6.75H8.75"/><path d="M17 7 6.75 17.25"/></svg></button>
+          <div class="wrow__media"><img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" alt="Brand Boost — tailored media campaigns" width="560" height="655" loading="lazy"><span class="wrow__tag">01</span></div>
+        </div>
+
+        <div class="wrow wrow--btn" data-rv="fade" style="--d:70ms">
+          <span class="wrow__no">02</span>
+          <h3 class="wrow__ttl">Media Magic</h3>
+          <span class="wrow__cat">360° media</span>
+          <button class="wrow__go" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/2xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" data-cap="Media Magic — 360 degree campaigns" aria-label="Open full image: Media Magic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.25 15.25V6.75H8.75"/><path d="M17 7 6.75 17.25"/></svg></button>
+          <div class="wrow__media"><img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" alt="Media Magic — 360 degree campaigns" width="560" height="655" loading="lazy"><span class="wrow__tag">02</span></div>
+        </div>
+
+        <div class="wrow wrow--btn" data-rv="fade" style="--d:140ms">
+          <span class="wrow__no">03</span>
+          <h3 class="wrow__ttl">Our Work</h3>
+          <span class="wrow__cat">Campaigns</span>
+          <button class="wrow__go" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/2xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" data-cap="Our Work — media solutions" aria-label="Open full image: Our Work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.25 15.25V6.75H8.75"/><path d="M17 7 6.75 17.25"/></svg></button>
+          <div class="wrow__media"><img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="Our Work — media solutions" width="560" height="655" loading="lazy"><span class="wrow__tag">03</span></div>
+        </div>
+
+        <a class="wrow wrow--ext" href="https://youtu.be/vjzv-2H9BtU" target="_blank" rel="noopener" data-rv="fade" style="--d:210ms">
+          <span class="wrow__no">04</span>
+          <h3 class="wrow__ttl">Showreel</h3>
+          <span class="wrow__cat">Watch on YouTube</span>
+          <span class="wrow__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 15.25V6.75H8.75"/><path d="M17 7 6.75 17.25"/></svg></span>
+          <div class="wrow__media"><img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/9f982f26-c6fe-4b03-b27e-d0ff3b7920e9/xlarge_yt-vjzv-2H9BtU.webp" alt="Flying Leoz Media film" width="1280" height="720" loading="lazy"><span class="wrow__tag">04</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SERVICES ══════════════ -->
+  <section class="sect sect--svc" id="services" aria-labelledby="svcTitle">
+    <div class="svc">
+
+      <div class="svc__side" id="svcSide">
+        <div class="svc__panel" id="svcPanel" role="tabpanel" aria-live="polite" aria-labelledby="svcTab1" data-rv>
+          <figure class="svc__shot fr" data-rv="img"><img id="svcImg" src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" alt="Flying Leoz Media — business consultancy" width="800" height="600" loading="lazy"></figure>
+          <p class="svc__cat" id="svcCat">Business Consultancy</p>
+          <p class="svc__desc" id="svcDesc">Transforming your product ideas into reality with tailored consultation services that ensure seamless manufacturing processes and strong brand connections.</p>
+          <div class="svc__tags" id="svcTags"><span class="chip">Product ideas</span><span class="chip">Tailored consultation</span><span class="chip">Seamless manufacturing</span><span class="chip">Brand connections</span></div>
+        </div>
+      </div>
+
+      <div class="svc__list">
+        <h2 class="eyebrow" id="svcTitle" data-rv>[ Our Services ]</h2>
+        <p class="svc__say" data-rv style="--d:100ms">Comprehensive media and marketing solutions tailored for your business growth.</p>
+        <ul role="tablist" aria-orientation="vertical" aria-label="Flying Leoz services" id="svcTabs">
+          <li class="svc__row on" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab1" aria-selected="true" aria-controls="svcPanel" tabindex="0"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp"
+                    data-name="Business Consultancy"
+                    data-desc="Transforming your product ideas into reality with tailored consultation services that ensure seamless manufacturing processes and strong brand connections."
+                    data-tags="Product ideas|Tailored consultation|Seamless manufacturing|Brand connections"><span class="svc__num">[01]</span><span class="svc__txt">Business Consultancy</span></button>
+          </li>
+          <li class="svc__row" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab2" aria-selected="false" aria-controls="svcPanel" tabindex="-1"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f281be43-d37e-40da-9cdd-1ef3b21a5886/xlarge_vasti-ghee-intro-final1_page-0001-XY6xHoleAFNSHmG6.webp"
+                    data-name="Marketing &amp; Strategy"
+                    data-desc="Igniting brands in the digital realm with creative strategies that captivate audiences and elevate your online presence."
+                    data-tags="Creative strategies|Digital realm|Captivate audiences|Online presence"><span class="svc__num">[02]</span><span class="svc__txt">Marketing &amp; Strategy</span></button>
+          </li>
+          <li class="svc__row" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab3" aria-selected="false" aria-controls="svcPanel" tabindex="-1"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/4e682bab-d572-4eb6-a5cb-e0271c9c1b1c/xlarge_posheen-workcations-PpXb60UNkRXYarO0.webp"
+                    data-name="Content Creation"
+                    data-desc="Igniting your vision with compelling content that captivates and connects. From startups to established brands, our creative media services are designed to elevate your message and make an impact."
+                    data-tags="Compelling content|Startups to brands|Creative media|Impact"><span class="svc__num">[03]</span><span class="svc__txt">Content Creation</span></button>
+          </li>
+          <li class="svc__row" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab4" aria-selected="false" aria-controls="svcPanel" tabindex="-1"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp"
+                    data-name="Media Strategy"
+                    data-desc="Crafting targeted campaigns that connect your brand with the right audience effectively."
+                    data-tags="Targeted campaigns|Right audience|Effective reach"><span class="svc__num">[04]</span><span class="svc__txt">Media Strategy</span></button>
+          </li>
+          <li class="svc__row" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab5" aria-selected="false" aria-controls="svcPanel" tabindex="-1"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3ebb52d7-7c20-4a83-8c5f-efcfcd87bf57/xlarge_a-AL2uU7eUEMMX0v9m.webp"
+                    data-name="Marketing Support"
+                    data-desc="Providing end-to-end marketing services to help startups and established businesses thrive."
+                    data-tags="End-to-end marketing|Startups|Established businesses"><span class="svc__num">[05]</span><span class="svc__txt">Marketing Support</span></button>
+          </li>
+          <li class="svc__row" role="presentation">
+            <button class="svc__btn" type="button" role="tab" id="svcTab6" aria-selected="false" aria-controls="svcPanel" tabindex="-1"
+                    data-img="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp"
+                    data-name="Digital Marketing Services"
+                    data-desc="Digital Marketing is not just about knowing tools and platforms its about how to use them strategically to engage your target audience and turn them into verified leads."
+                    data-tags="Tools and platforms|Strategy|Target audience|Verified leads"><span class="svc__num">[06]</span><span class="svc__txt">Digital Marketing Services</span></button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ PROCESS ══════════════ -->
+  <section class="sect" id="process" aria-labelledby="procTitle">
+    <div class="wrap">
+      <div class="proc__head">
+        <div class="proc__title">
+          <span class="eyebrow" data-rv>[ How we work ]</span>
+          <h2 class="dsp h-xl" id="procTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>How do we</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>work?</span></span>
+          </h2>
+        </div>
+        <p class="quote" data-rv style="--d:160ms">“In India, the concept of a full-service agency is not very well-known, and most of the time, all we can explain is that we do our magic and show you the results!”</p>
+      </div>
+      <div class="proc__steps">
+        <div class="step">
+          <article class="pcard" style="--c:1" data-rv>
+            <span class="pcard__num" aria-hidden="true">01</span>
+            <h4>What we do</h4>
+            <p>Business Consultancy · Marketing &amp; Strategy · Content Creation · Media Strategy · Marketing Support · Digital Marketing Services</p>
+          </article>
+        </div>
+        <div class="step">
+          <article class="pcard pcard--primary" style="--c:2" data-rv>
+            <span class="pcard__num" aria-hidden="true">02</span>
+            <h4>Who we do it for</h4>
+            <p>Startups and established businesses.</p>
+          </article>
+        </div>
+        <div class="step">
+          <article class="pcard" style="--c:3" data-rv>
+            <span class="pcard__num" aria-hidden="true">03</span>
+            <h4>How you see it</h4>
+            <div class="reel">
+              <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/05505dc7-f775-406c-8c3d-3213a918f000/xlarge_yt-Q9gw3rOyHh0.webp" alt="Flying Leoz Media showreel" width="1280" height="720" loading="lazy">
+              <button type="button" id="reelBtn" aria-label="Play the Flying Leoz Media showreel">
+                <i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1.2 10 6 2 10.8z"/></svg></i><span>Play showreel</span>
+              </button>
+            </div>
+            <p>Results — the work itself, presented back to you.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CLIENTS + CASE RESULTS ══════════════ -->
+  <section class="sect" id="clients" aria-labelledby="clTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Clients ]</span>
+          <h2 class="dsp h-xl" id="clTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Brands we have</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>worked with</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Helping startups and established brands grow with tailored strategies.</p>
+      </div>
+
+      <!-- CLIENT NAMES ARE SOURCED, NOT INVENTED: Honda appears in the published testimonial
+           (Rajeev Ranjan, Honda Motorcycles & scooter India); Vasti Ghee, Posheen Workcations
+           and Psybernews are Flying Leoz's own portfolio files. The "On record" line states
+           only what the current site already shows — replace it with a verified campaign
+           metric the day the studio has numbers it is willing to publish. -->
+      <div class="clwall" data-rv style="--d:60ms">
+        <div class="clc"><span class="clc__no">C.01</span><span class="clc__nm">Honda</span><span class="clc__tp">Motorcycles &amp; scooters</span></div>
+        <div class="clc"><span class="clc__no">C.02</span><span class="clc__nm">Vasti Ghee</span><span class="clc__tp">Ghee &amp; pantry foods</span></div>
+        <div class="clc"><span class="clc__no">C.03</span><span class="clc__nm">Posheen Workcations</span><span class="clc__tp">Workcation stays</span></div>
+        <div class="clc"><span class="clc__no">C.04</span><span class="clc__nm">Psybernews</span><span class="clc__tp">Digital news &amp; media</span></div>
+      </div>
+
+      <div class="cs">
+        <article class="csc" data-rv>
+          <div class="csc__plate" aria-hidden="true"><b>Honda</b><small>Motorcycles &amp; scooters</small></div>
+          <div class="csc__hd"><h3 class="csc__nm">Honda</h3><span class="csc__no">R.01</span></div>
+          <p class="csc__q">&ldquo;Flying Leoz Media transformed our brand presence with creative campaigns that truly resonated with our audience.&rdquo;</p>
+          <p class="csc__tp">Rajeev Ranjan &middot; Honda Motorcycles &amp; scooter India</p>
+          <div class="res"><span class="res__k">On record</span><span class="res__v">Client quote published on the current site.</span></div>
+        </article>
+
+        <article class="csc" data-rv style="--d:70ms">
+          <button class="csc__fr fr" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f281be43-d37e-40da-9cdd-1ef3b21a5886/2xlarge_vasti-ghee-intro-final1_page-0001-XY6xHoleAFNSHmG6.webp" data-cap="Vasti Ghee — Flying Leoz portfolio artwork" aria-label="Open image: Vasti Ghee portfolio artwork">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f281be43-d37e-40da-9cdd-1ef3b21a5886/xlarge_vasti-ghee-intro-final1_page-0001-XY6xHoleAFNSHmG6.webp" alt="Flying Leoz Media portfolio artwork for Vasti Ghee" width="600" height="800" loading="lazy">
+          </button>
+          <div class="csc__hd"><h3 class="csc__nm">Vasti Ghee</h3><span class="csc__no">R.02</span></div>
+          <p class="csc__tp">Brand intro film &mdash; title sequence, product frames and a closing pack shot.</p>
+          <div class="res"><span class="res__k">On record</span><span class="res__v">Intro pages live in the studio portfolio.</span></div>
+        </article>
+
+        <article class="csc" data-rv style="--d:140ms">
+          <button class="csc__fr fr" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/4e682bab-d572-4eb6-a5cb-e0271c9c1b1c/2xlarge_posheen-workcations-PpXb60UNkRXYarO0.webp" data-cap="Posheen Workcations — Flying Leoz portfolio artwork" aria-label="Open image: Posheen Workcations portfolio artwork">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/4e682bab-d572-4eb6-a5cb-e0271c9c1b1c/xlarge_posheen-workcations-PpXb60UNkRXYarO0.webp" alt="Flying Leoz Media portfolio artwork for Posheen Workcations" width="600" height="800" loading="lazy">
+          </button>
+          <div class="csc__hd"><h3 class="csc__nm">Posheen Workcations</h3><span class="csc__no">R.03</span></div>
+          <p class="csc__tp">Campaign key visuals for a workcation series &mdash; stay, setting, schedule.</p>
+          <div class="res"><span class="res__k">On record</span><span class="res__v">Visual published in the studio portfolio.</span></div>
+        </article>
+
+        <article class="csc" data-rv style="--d:210ms">
+          <button class="csc__fr fr" type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3e812aea-7ee6-44a1-a072-b137018aa5fc/2xlarge_psybernews-4th-issue-63kgqlN43H9AzKaD.webp" data-cap="Psybernews — Flying Leoz portfolio artwork" aria-label="Open image: Psybernews portfolio artwork">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3e812aea-7ee6-44a1-a072-b137018aa5fc/2xlarge_psybernews-4th-issue-63kgqlN43H9AzKaD.webp" alt="Flying Leoz Media portfolio artwork for Psybernews" width="700" height="400" loading="lazy">
+          </button>
+          <div class="csc__hd"><h3 class="csc__nm">Psybernews</h3><span class="csc__no">R.04</span></div>
+          <p class="csc__tp">Cover artwork for the fourth issue &mdash; masthead, headline and lead image.</p>
+          <div class="res"><span class="res__k">On record</span><span class="res__v">Issue cover published in the portfolio.</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TESTIMONIALS ══════════════ -->
+  <section class="sect tst" id="testimonials" aria-labelledby="tstTitle">
+    <div class="wrap">
+      <div class="tst__bar">
+        <div>
+          <span class="eyebrow" data-rv>[ Reviews ]</span>
+          <h2 class="dsp h-xl" id="tstTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>What our clients</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>say about us</span></span>
+          </h2>
+        </div>
+        <div class="tst__nav" data-rv style="--d:120ms">
+          <button class="pv" id="tPrev" aria-label="Previous testimonial" aria-controls="tTrack"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></button>
+          <button class="nx" id="tNext" aria-label="Next testimonial" aria-controls="tTrack"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></button>
+        </div>
+      </div>
+
+      <div class="track" id="tTrack" tabindex="0" role="group" aria-label="Client testimonials, draggable">
+        <article class="tcard">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+          </div>
+          <blockquote>“Flying Leoz Media transformed our brand presence with creative campaigns that truly resonated with our audience.”</blockquote>
+          <div class="tcard__who">
+            <span class="tcard__av" aria-hidden="true">RR<img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/2295f2a1-3fdf-44a1-a4b0-6eac4a30d8e7/small_generated-WWjXQMcEUkIoYfE8.webp" alt="" loading="lazy" decoding="async" width="48" height="48" onerror="this.remove()"></span>
+            <div><b>Rajeev Ranjan</b><span>Honda Motorcycles &amp; scooter India</span></div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.1 5.6.8-4 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-4 5.6-.8z"/></svg>
+          </div>
+          <blockquote>“Their team's dedication and fresh ideas helped our startup gain traction quickly in a competitive market.”</blockquote>
+          <div class="tcard__who">
+            <span class="tcard__av" aria-hidden="true">AM<img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/b150de21-d722-453d-a3a6-f5e454588112/small_generated-YM1vErGAY3SelgoH.webp" alt="" loading="lazy" decoding="async" width="48" height="48" onerror="this.remove()"></span>
+            <div><b>Akash Mittal</b><span>Micromax Mobile India</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="dots" id="tDots"></div>
+      <p class="tst__meta" style="margin-top:14px">Drag, swipe or use the arrows to move between testimonials.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ IMPACT ══════════════ -->
+  <section class="sect" id="impact" aria-labelledby="galTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Gallery ]</span>
+          <h2 class="dsp h-xl" id="galTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Impact</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Capturing moments that tell your brand's story.</p>
+      </div>
+    </div>
+
+    <div class="film" id="gal">
+      <div class="strip" data-spd="26" data-rv>
+        <div class="film__track">
+          <figure class="frame f-tall"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/2xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" data-cap="The Flying Leoz journey" aria-label="Open image: The Flying Leoz journey">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/c1fdc5aa-d04b-44e0-a561-f077c1584991/xlarge_flyingleoz-journey-Fld7LWEDFlol96mf.webp" alt="Flying Leoz Media — journey" width="600" height="800" loading="lazy"><span class="frame__no" aria-hidden="true">F.01</span></button>
+            <figcaption>The Flying Leoz journey</figcaption></figure>
+
+          <figure class="frame f-tall"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f281be43-d37e-40da-9cdd-1ef3b21a5886/2xlarge_vasti-ghee-intro-final1_page-0001-XY6xHoleAFNSHmG6.webp" data-cap="From the Flying Leoz portfolio" aria-label="Open image: From the Flying Leoz portfolio">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f281be43-d37e-40da-9cdd-1ef3b21a5886/xlarge_vasti-ghee-intro-final1_page-0001-XY6xHoleAFNSHmG6.webp" alt="Flying Leoz Media portfolio work" width="600" height="800" loading="lazy"><span class="frame__no" aria-hidden="true">F.02</span></button>
+            <figcaption>From the portfolio</figcaption></figure>
+
+          <figure class="frame f-tall"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/4e682bab-d572-4eb6-a5cb-e0271c9c1b1c/2xlarge_posheen-workcations-PpXb60UNkRXYarO0.webp" data-cap="From the Flying Leoz portfolio" aria-label="Open image: From the Flying Leoz portfolio">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/4e682bab-d572-4eb6-a5cb-e0271c9c1b1c/xlarge_posheen-workcations-PpXb60UNkRXYarO0.webp" alt="Flying Leoz Media portfolio work" width="600" height="800" loading="lazy"><span class="frame__no" aria-hidden="true">F.03</span></button>
+            <figcaption>From the portfolio</figcaption></figure>
+
+          <figure class="frame f-tall"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/9d598de0-c505-4ffc-b865-d3fcb53da835/2xlarge_img-20150210-wa0002-zPDVz7diw3Hw3qLW.webp" data-cap="From the Flying Leoz portfolio" aria-label="Open image: From the Flying Leoz portfolio">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/9d598de0-c505-4ffc-b865-d3fcb53da835/xlarge_img-20150210-wa0002-zPDVz7diw3Hw3qLW.webp" alt="Flying Leoz Media portfolio work" width="600" height="800" loading="lazy"><span class="frame__no" aria-hidden="true">F.04</span></button>
+            <figcaption>From the portfolio</figcaption></figure>
+
+          <figure class="frame f-tall"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3ebb52d7-7c20-4a83-8c5f-efcfcd87bf57/2xlarge_a-AL2uU7eUEMMX0v9m.webp" data-cap="Some of our designs" aria-label="Open image: Some of our designs">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3ebb52d7-7c20-4a83-8c5f-efcfcd87bf57/xlarge_a-AL2uU7eUEMMX0v9m.webp" alt="Flying Leoz Media portfolio work" width="600" height="800" loading="lazy"><span class="frame__no" aria-hidden="true">F.05</span></button>
+            <figcaption>Some of our designs</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="strip strip--rev" data-spd="34" data-rv style="--d:80ms">
+        <div class="film__track">
+          <figure class="frame f-wide"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/2xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" data-cap="Services in action" aria-label="Open image: Services in action">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/57941d71-3392-4321-a9ee-2baccaf4c74f/2xlarge_flyingleoz-services-OF8QvrMfc55Lhkhf.webp" alt="Flying Leoz Media — services" width="1100" height="690" loading="lazy"><span class="frame__no" aria-hidden="true">F.06</span></button>
+            <figcaption>Services in action</figcaption></figure>
+
+          <figure class="frame f-wide"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3e812aea-7ee6-44a1-a072-b137018aa5fc/2xlarge_psybernews-4th-issue-63kgqlN43H9AzKaD.webp" data-cap="Some of our designs" aria-label="Open image: Some of our designs">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/3e812aea-7ee6-44a1-a072-b137018aa5fc/2xlarge_psybernews-4th-issue-63kgqlN43H9AzKaD.webp" alt="Flying Leoz Media design work" width="1100" height="690" loading="lazy"><span class="frame__no" aria-hidden="true">F.07</span></button>
+            <figcaption>Some of our designs</figcaption></figure>
+
+          <figure class="frame f-wide"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/2xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" data-cap="Delivering results" aria-label="Open image: Delivering results">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/2xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" alt="Flying Leoz Media — results" width="1100" height="690" loading="lazy"><span class="frame__no" aria-hidden="true">F.08</span></button>
+            <figcaption>Delivering results</figcaption></figure>
+
+          <figure class="frame f-wide"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/2295f2a1-3fdf-44a1-a4b0-6eac4a30d8e7/2xlarge_generated-WWjXQMcEUkIoYfE8.webp" data-cap="Some of our designs" aria-label="Open image: Some of our designs">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/2295f2a1-3fdf-44a1-a4b0-6eac4a30d8e7/xlarge_generated-WWjXQMcEUkIoYfE8.webp" alt="Flying Leoz Media design work" width="900" height="680" loading="lazy"><span class="frame__no" aria-hidden="true">F.09</span></button>
+            <figcaption>Some of our designs</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="strip" data-spd="20" data-rv style="--d:160ms">
+        <div class="film__track">
+          <figure class="frame f-sq"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/2xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" data-cap="Success stories" aria-label="Open image: Success stories">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/a5b2e4ab-c64c-4630-8871-293f1115c972/xlarge_flyingleoz-success-fplmncWswLCQwvnF.webp" alt="Flying Leoz Media — success" width="700" height="700" loading="lazy"><span class="frame__no" aria-hidden="true">F.10</span></button>
+            <figcaption>Success stories</figcaption></figure>
+
+          <figure class="frame f-sq"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f418943d-a0db-4b35-b8af-19c68c7c50b2/2xlarge_01-QZqJZT9P64trEOjL.webp" data-cap="Some of our designs" aria-label="Open image: Some of our designs">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/f418943d-a0db-4b35-b8af-19c68c7c50b2/xlarge_01-QZqJZT9P64trEOjL.webp" alt="Flying Leoz Media design work" width="700" height="700" loading="lazy"><span class="frame__no" aria-hidden="true">F.11</span></button>
+            <figcaption>Some of our designs</figcaption></figure>
+
+          <figure class="frame f-sq"><button type="button" data-full="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/b150de21-d722-453d-a3a6-f5e454588112/2xlarge_generated-YM1vErGAY3SelgoH.webp" data-cap="Some of our designs" aria-label="Open image: Some of our designs">
+            <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/b150de21-d722-453d-a3a6-f5e454588112/xlarge_generated-YM1vErGAY3SelgoH.webp" alt="Flying Leoz Media design work" width="700" height="700" loading="lazy"><span class="frame__no" aria-hidden="true">F.12</span></button>
+            <figcaption>Some of our designs</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="film__foot" data-rv style="--d:220ms">
+        <span class="film__hint"><i aria-hidden="true"></i>Twelve frames from the Flying Leoz reel</span>
+        <span class="film__hint"><i aria-hidden="true"></i>Hover to hold the strip · select a frame to enlarge</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PACKAGES ══════════════ -->
+  <section class="sect" id="packages" aria-labelledby="pkTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Packages ]</span>
+          <h2 class="dsp h-xl" id="pkTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Ways to</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>work together</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Comprehensive media and marketing solutions tailored for your business growth.</p>
+      </div>
+
+      <!-- Three tiers wired to #contact. Prices and inclusions are proposed copy, not the
+           studio's published rate card — set the real numbers before launch, or delete a tier:
+           the grid re-flows on its own. -->
+      <div class="pk">
+        <article class="pkc" data-rv>
+          <span class="pkc__no">TIER 01</span>
+          <h3 class="pkc__nm">Launch Sprint</h3>
+          <p class="pkc__pr">&#8377;35,000<em>per project</em></p>
+          <ul class="pkc__list">
+            <li>One brand film, up to 90 seconds</li>
+            <li>Six social creatives, sized per platform</li>
+            <li>Script, storyboard and shot list</li>
+            <li>Two revision rounds, ten working days</li>
+          </ul>
+          <a class="btn btn--ghost btn--sm" href="#contact" data-nav>Enquire
+            <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+          </a>
+        </article>
+
+        <article class="pkc" data-rv style="--d:80ms">
+          <span class="pkc__no">TIER 02</span>
+          <h3 class="pkc__nm">Always-On</h3>
+          <p class="pkc__pr">&#8377;85,000<em>per month</em></p>
+          <ul class="pkc__list">
+            <li>Sixteen content assets across the month</li>
+            <li>Two campaign builds with hand-off notes</li>
+            <li>Community inbox cover, six days a week</li>
+            <li>Monthly review call and written report</li>
+          </ul>
+          <a class="btn btn--ghost btn--sm" href="#contact" data-nav>Enquire
+            <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+          </a>
+        </article>
+
+        <article class="pkc" data-rv style="--d:160ms">
+          <span class="pkc__no">TIER 03</span>
+          <h3 class="pkc__nm">Full Service</h3>
+          <p class="pkc__pr">On request<em>monthly retainer</em></p>
+          <ul class="pkc__list">
+            <li>Strategy, content, paid media and reporting</li>
+            <li>One account lead who owns the calendar</li>
+            <li>Quarterly brand review with the founders</li>
+            <li>Priority shoot days and faster turnarounds</li>
+          </ul>
+          <a class="btn btn--ghost btn--sm" href="#contact" data-nav>Enquire
+            <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TOOLS & PLATFORMS ══════════════ -->
+  <section class="sect" id="tools" aria-labelledby="tlTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Tools &amp; platforms ]</span>
+          <h2 class="dsp h-xl" id="tlTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Where the work</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>shows up</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Crafting targeted campaigns that connect your brand with the right audience effectively.</p>
+      </div>
+
+      <h3 class="subhead" data-rv>Channels<i aria-hidden="true"></i></h3>
+      <!-- The four destinations below are the ones already linked from the current site.
+           Swap the bare homepage hrefs for the exact profile URLs when they exist. -->
+      <div class="pf" data-rv>
+        <div class="pfc">
+          <span class="pfc__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="pfc__t"><a class="pfc__nm ul" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><span class="pfc__hd">Reels and story formats</span></span>
+        </div>
+        <div class="pfc">
+          <span class="pfc__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 8h3V4.5h-3c-2.5 0-4 1.6-4 4V11H7v3.5h3V22H13v-7.5h3l.5-3.5H13V9c0-.6.4-1 1-1z"/></svg></span>
+          <span class="pfc__t"><a class="pfc__nm ul" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a><span class="pfc__hd">Community and paid reach</span></span>
+        </div>
+        <div class="pfc">
+          <span class="pfc__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></span>
+          <span class="pfc__t"><a class="pfc__nm ul" href="https://x.com/" target="_blank" rel="noopener">X</a><span class="pfc__hd">Announcements and links</span></span>
+        </div>
+        <div class="pfc">
+          <span class="pfc__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg></span>
+          <span class="pfc__t"><a class="pfc__nm ul" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a><span class="pfc__hd">Long-form and the showreel</span></span>
+        </div>
+      </div>
+
+      <h3 class="subhead" data-rv>Stack<i aria-hidden="true"></i></h3>
+      <!-- Proposed working set. flyingleoz.com does not publish its software, so confirm or replace. -->
+      <div class="st">
+        <div class="stc" data-rv><span class="stc__no">S.01</span><span class="stc__nm">Adobe Premiere Pro</span><span class="stc__tp">Cuts, grading and delivery masters.</span></div>
+        <div class="stc" data-rv style="--d:50ms"><span class="stc__no">S.02</span><span class="stc__nm">Adobe Photoshop &amp; Lightroom</span><span class="stc__tp">Stills, key visuals and retouch.</span></div>
+        <div class="stc" data-rv style="--d:100ms"><span class="stc__no">S.03</span><span class="stc__nm">Figma</span><span class="stc__tp">Decks, carousels and layout systems.</span></div>
+        <div class="stc" data-rv style="--d:150ms"><span class="stc__no">S.04</span><span class="stc__nm">Meta Business Suite</span><span class="stc__tp">Scheduling, boosting and shared inbox.</span></div>
+        <div class="stc" data-rv style="--d:200ms"><span class="stc__no">S.05</span><span class="stc__nm">Google Analytics 4</span><span class="stc__tp">Traffic, leads and channel attribution.</span></div>
+        <div class="stc" data-rv style="--d:250ms"><span class="stc__no">S.06</span><span class="stc__nm">Google Sheets</span><span class="stc__tp">Calendars, budgets and shot lists.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ RECOGNITION ══════════════ -->
+  <section class="sect" id="awards" aria-labelledby="awTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Recognition ]</span>
+          <h2 class="dsp h-xl" id="awTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Awards &amp;</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>features</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">We craft tailored media and marketing solutions that help startups and established businesses grow with confidence.</p>
+      </div>
+
+      <div class="aw">
+        <div class="aw__flag" data-rv>
+          <span class="num" data-to="15" data-suffix="">0</span>
+          <b>Clients Win</b>
+          <p>The recognition figure published on flyingleoz.com today.</p>
+        </div>
+        <!-- Each row is a figure the studio publishes about itself. No trophy, jury or
+             press mention is claimed here because none is on record. -->
+        <div class="awl" data-rv style="--d:80ms">
+          <div class="awr"><span class="awr__yr">150+</span><span class="awr__nm">Trusted globally</span><span class="awr__by">Reach figure published on the current site.</span></div>
+          <div class="awr"><span class="awr__yr">100+</span><span class="awr__nm">Clients served</span><span class="awr__by">Partnership figure published on the current site.</span></div>
+          <div class="awr"><span class="awr__yr">15</span><span class="awr__nm">Client wins</span><span class="awr__by">Campaign outcomes the studio counts to date.</span></div>
+          <div class="awr"><span class="awr__yr">06</span><span class="awr__nm">Services, end to end</span><span class="awr__by">Strategy, film, design, social, paid and analytics.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TEAM ══════════════ -->
+  <section class="sect" id="team" aria-labelledby="tmTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ The studio ]</span>
+          <h2 class="dsp h-xl" id="tmTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>The functions</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>behind the work</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Four seats carry a project from brief to distribution &mdash; planning, production, design and social.</p>
+      </div>
+
+      <!-- Seats are shown by function. flyingleoz.com publishes no staff names, roles or
+           photographs, so nothing personal is invented here; the imagery is licensed stock
+           (Pexels) standing in for each function, not a photo of the studio. -->
+      <div class="tm">
+        <article class="tmc" data-rv>
+          <div class="fr tmc__ph"><img src="assets/images/stock/seat-desk.jpg" alt="Desk and lamp in a dim, empty office" width="1100" height="1375" loading="lazy" decoding="async"></div>
+          <h3 class="tmc__mn">Strategy &amp; Consulting</h3>
+          <p class="tmc__rl">Planning, positioning, measurement</p>
+          <p class="tmc__ln">Turns the business goal into a brief: audience, message, channel mix and the numbers a campaign has to move.</p>
+        </article>
+        <article class="tmc" data-rv style="--d:70ms">
+          <div class="fr tmc__ph"><img src="assets/images/stock/seat-audio.jpg" alt="Studio microphone on a stand against a dark background" width="1100" height="785" loading="lazy" decoding="async"></div>
+          <h3 class="tmc__mn">Film &amp; Production</h3>
+          <p class="tmc__rl">Direction, camera, sound, edit</p>
+          <p class="tmc__ln">Runs the shoot and the post after it, from brand films and interviews down to the cut-downs each platform needs.</p>
+        </article>
+        <article class="tmc" data-rv style="--d:140ms">
+          <div class="fr tmc__ph"><img src="assets/images/stock/seat-creator.jpg" alt="Microphone and ring light set up for recording" width="1100" height="733" loading="lazy" decoding="async"></div>
+          <h3 class="tmc__mn">Design &amp; Content</h3>
+          <p class="tmc__rl">Key visuals, statics, motion</p>
+          <p class="tmc__ln">Builds the look of a campaign and keeps it consistent across posters, carousels, thumbnails and packaging artwork.</p>
+        </article>
+        <article class="tmc" data-rv style="--d:210ms">
+          <div class="fr tmc__ph"><img src="assets/images/stock/seat-set.jpg" alt="Phone on a gimbal beside a small green screen" width="1100" height="733" loading="lazy" decoding="async"></div>
+          <h3 class="tmc__mn">Social &amp; Creator Ops</h3>
+          <p class="tmc__rl">Calendars, shoots, community</p>
+          <p class="tmc__ln">Plans the monthly calendar, runs the creator shoots and keeps the inboxes, comments and posting schedule moving.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ NOTES / BLOG ══════════════ -->
+  <section class="sect" id="blog" aria-labelledby="blTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Notes ]</span>
+          <h2 class="dsp h-xl" id="blTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>From the</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>studio</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:34ch">Results &mdash; the work itself, presented back to you.</p>
+      </div>
+
+      <div class="bl">
+        <article class="blc" data-rv>
+          <a class="blc__fr fr" href="https://youtu.be/vjzv-2H9BtU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi_webp/vjzv-2H9BtU/maxresdefault.webp" alt="Flying Leoz Media showreel" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blc__tg"><span>Reel</span><i aria-hidden="true"></i><span>YouTube</span></div>
+          <h3 class="blc__ttl"><a href="https://youtu.be/vjzv-2H9BtU" target="_blank" rel="noopener">The Flying Leoz Media showreel</a></h3>
+          <p>Watch the reel already embedded on the current site.</p>
+          <a class="blc__go" href="https://youtu.be/vjzv-2H9BtU" target="_blank" rel="noopener">Watch on YouTube
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg>
+          </a>
+        </article>
+
+        <!-- Notes 02 and 03 link to sections on this page because flyingleoz.com/blog does not
+             resolve yet. Repoint both titles and buttons at /blog/<slug> when posts are live. -->
+        <article class="blc" data-rv style="--d:80ms">
+          <div class="blc__fr fr"><img src="assets/images/stock/post-planning.jpg" alt="Person working at a computer in a dark room" width="1100" height="619" loading="lazy" decoding="async"></div>
+          <div class="blc__tg"><span>Process</span><i aria-hidden="true"></i><span>How we work</span></div>
+          <h3 class="blc__ttl"><a href="#process" data-nav>Three questions every project starts with</a></h3>
+          <p>What we do, who we do it for and how you see it &mdash; the short loop behind consultancy, content creation and media strategy.</p>
+          <a class="blc__go" href="#process" data-nav>Read the process
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg>
+          </a>
+        </article>
+
+        <article class="blc" data-rv style="--d:160ms">
+          <div class="blc__fr fr"><img src="assets/images/stock/post-reporting.jpg" alt="Editing suite lit by monitor glow at night" width="1100" height="733" loading="lazy" decoding="async"></div>
+          <div class="blc__tg"><span>Work</span><i aria-hidden="true"></i><span>Selected</span></div>
+          <h3 class="blc__ttl"><a href="#work" data-nav>What the portfolio actually shows</a></h3>
+          <p>Brand intros, campaign key visuals and cover artwork for the clients named on the current site &mdash; twelve frames from the reel.</p>
+          <a class="blc__go" href="#work" data-nav>See the work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FAQ ══════════════ -->
+  <section class="sect" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="faq">
+        <div class="faq__side">
+          <span class="eyebrow" data-rv>[ FAQ ]</span>
+          <h2 class="dsp h-xl" id="faqTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Questions,</span></span>
+            <span data-rv="mask" style="--d:90ms"><span>answered</span></span>
+          </h2>
+          <p class="lede" data-rv style="--d:140ms">Five of these answer in the studio&rsquo;s own published words. The last two follow the Packages tiers below.</p>
+          <div class="faq__say" data-rv style="--d:200ms">
+            <b>Ask directly</b>
+            <p><a class="ul" href="mailto:info@flyingleoz.com">info@flyingleoz.com</a><br>
+              <a class="ul" href="tel:+919717406563">+91-9717406563</a><br>
+              10am&ndash;7pm &middot; B-114, Block A, Sector-64, Noida 201301</p>
+          </div>
+        </div>
+
+        <div class="faq__list">
+          <details class="qa" name="faq" data-rv>
+            <summary><h3>What does Flying Leoz Media do?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>Comprehensive media and marketing solutions tailored for your business growth. The six services published on the current site are Business Consultancy, Marketing &amp; Strategy, Content Creation, Media Strategy, Marketing Support and Digital Marketing Services.</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:40ms">
+            <summary><h3>Who do you work with?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>Startups and established businesses. The published brief is to help both &ldquo;grow with tailored strategies&rdquo; &mdash; and to help them grow with confidence.</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:80ms">
+            <summary><h3>What does &ldquo;full service&rdquo; mean here?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>&ldquo;In India, the concept of a full-service agency is not very well-known, and most of the time, all we can explain is that we do our magic and show you the results!&rdquo;</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:120ms">
+            <summary><h3>How do you approach a campaign?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>By crafting targeted campaigns that connect your brand with the right audience effectively. You see the outcome as the work itself, presented back to you.</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:160ms">
+            <summary><h3>Where are you based?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>Flying Leoz Media Pvt. Ltd. &mdash; B-114, Block A, Sector-64, Noida, Uttar Pradesh 201301. Studio hours listed on the current site are 10am&ndash;7pm.</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:200ms">
+            <summary><h3>What does a project cost?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>Three ways to engage are listed under <a class="ul" href="#packages" data-nav>Packages</a>: Launch Sprint at &#8377;35,000 per project, Always-On at &#8377;85,000 per month and Full Service on a quoted retainer. Work that fits none of the three is quoted to the brief.</p></div>
+          </details>
+          <details class="qa" name="faq" data-rv style="--d:240ms">
+            <summary><h3>How long does a project take?</h3><span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__b"><p>A single brand film takes about ten working days from a signed brief to final cut, and includes two revision rounds. Retainer work follows the monthly content calendar agreed at kickoff, so the first assets are delivered inside the first week.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FINAL CTA ══════════════ -->
+  <section class="cta" aria-labelledby="ctaTitle">
+    <div class="cta__glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="dsp h-xl" id="ctaTitle">
+        <span data-rv="mask"><span>Ready to Grow</span></span>
+        <span data-rv="mask" style="--d:90ms"><span>Your Brand?</span></span>
+      </h2>
+      <p class="lede" data-rv style="--d:180ms">Reach out for tailored media and marketing solutions.</p>
+      <div class="cta__acts" data-rv style="--d:260ms">
+        <a class="btn" href="#contact">Get Started
+          <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+        </a>
+        <a class="btn btn--ghost" href="mailto:info@flyingleoz.com">info@flyingleoz.com
+          <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+        </a>
+      </div>
+    </div>
+    <div class="mq cta__mq" style="border:0;background:transparent;margin-top:clamp(34px,4.4vw,66px)" aria-hidden="true">
+      <div class="mq__row" style="--sp:30s">
+        <span class="mq__txt"><b>Let's talk</b><i></i><u>Media &amp; Marketing</u><i></i><b>Let's talk</b><i></i><u>Tailored strategy</u><i></i></span>
+        <span class="mq__txt"><b>Let's talk</b><i></i><u>Media &amp; Marketing</u><i></i><b>Let's talk</b><i></i><u>Tailored strategy</u><i></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section class="sect" id="contact" aria-labelledby="ctcTitle">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-rv>[ Get in touch ]</span>
+          <h2 class="dsp h-xl" id="ctcTitle" style="margin-top:clamp(12px,1.4vw,20px)">
+            <span data-rv="mask"><span>Contact Us</span></span>
+          </h2>
+        </div>
+        <p class="lede" data-rv style="--d:120ms;max-width:32ch">Reach out for tailored media and marketing solutions.</p>
+      </div>
+
+      <div class="ctc">
+        <dl class="info" data-rv>
+          <div><dt class="k">Email</dt><dd class="v"><a class="ul" href="mailto:info@flyingleoz.com">info@flyingleoz.com</a></dd></div>
+          <div><dt class="k">Phone</dt><dd class="v"><a class="ul" href="tel:+919717406563">+91-9717406563</a></dd></div>
+          <div><dt class="k">Office</dt><dd class="v">B-114, Block A, Sector -64, Noida, Uttar Pradesh - 201301<br><span class="small">Flying Leoz Media Pvt.Ltd is located in the heart of the city, where creativity meets business.</span></dd></div>
+          <div><dt class="k">Hours</dt><dd class="v">10am - 7pm</dd></div>
+          <div><dt class="k">Company</dt><dd class="v">Flying Leoz Media Private Limited</dd></div>
+        </dl>
+
+        <form class="form" id="form" novalidate data-rv style="--d:120ms">
+          <div class="form__row">
+            <div class="fld" data-fld>
+              <label for="fName">Name</label>
+              <input id="fName" name="name" type="text" placeholder="Your name" autocomplete="name" required minlength="2" aria-describedby="eName">
+              <span class="err" id="eName" role="status"></span>
+            </div>
+            <div class="fld" data-fld>
+              <label for="fMail">Email</label>
+              <input id="fMail" name="email" type="email" placeholder="you@company.com" autocomplete="email" required aria-describedby="eMail">
+              <span class="err" id="eMail" role="status"></span>
+            </div>
+          </div>
+          <div class="fld" data-fld>
+            <label for="fMsg">Message</label>
+            <textarea id="fMsg" name="message" placeholder="Tell us about your brand and what you need help with." required minlength="10" aria-describedby="eMsg"></textarea>
+            <span class="err" id="eMsg" role="status"></span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+            <button class="btn" type="submit">Send Message
+              <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H5.5M13 13v-7.5"/></svg></span>
+            </button>
+            <p class="form__note">This site has no backend — submitting opens your email app with the message ready to send.</p>
+          </div>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <a class="brand" href="#home" aria-label="Flying Leoz Media — home">
+          <img src="https://admin.storebox.ai/media/3deeebf9-d102-4e63-a8cb-e907d8d3e2cf/51f0a433-4cbb-4c6e-811f-f87c9548e9ee/small_flying-leoz-logo-3-ueSxJwJUW06ji8SL.webp" alt="Flying Leoz logo" width="200" height="200" loading="lazy">
+          <b>Flying<i>&nbsp;</i>Leoz</b>
+        </a>
+        <p class="small">Comprehensive media and marketing solutions tailored for your business growth. Helping startups and established brands grow with tailored strategies.</p>
+        <h4 style="margin-top:6px">Stay Connected</h4>
+        <div class="ftr__soc">
+          <a href="https://www.instagram.com/" aria-label="Instagram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 8h3V4.5h-3c-2.5 0-4 1.6-4 4V11H7v3.5h3V22H13v-7.5h3l.5-3.5H13V9c0-.6.4-1 1-1z"/></svg></a>
+          <a href="https://x.com/" aria-label="X" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="https://www.youtube.com/" aria-label="YouTube" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="mailto:info@flyingleoz.com" aria-label="Email Flying Leoz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a class="ul" href="#home" data-nav>Home</a></li>
+          <li><a class="ul" href="#about" data-nav>About</a></li>
+          <li><a class="ul" href="#services" data-nav>Services</a></li>
+          <li><a class="ul" href="#work" data-nav>Our Work</a></li>
+          <li><a class="ul" href="#clients" data-nav>Clients</a></li>
+          <li><a class="ul" href="#impact" data-nav>Impact</a></li>
+          <li><a class="ul" href="#packages" data-nav>Packages</a></li>
+          <li><a class="ul" href="#faq" data-nav>FAQ</a></li>
+          <li><a class="ul" href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a class="ul" href="#services" data-nav>Business Consultancy</a></li>
+          <li><a class="ul" href="#services" data-nav>Marketing &amp; Strategy</a></li>
+          <li><a class="ul" href="#services" data-nav>Content Creation</a></li>
+          <li><a class="ul" href="#services" data-nav>Media Strategy</a></li>
+          <li><a class="ul" href="#services" data-nav>Marketing Support</a></li>
+          <li><a class="ul" href="#services" data-nav>Digital Marketing Services</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a class="ul" href="mailto:info@flyingleoz.com">info@flyingleoz.com</a></li>
+          <li><a class="ul" href="tel:+919717406563">+91-9717406563</a></li>
+          <li><span>B-114, Block A, Sector -64,<br>Noida, Uttar Pradesh - 201301</span></li>
+          <li><span>10am - 7pm</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <svg class="ftr__word" viewBox="0 0 1000 150" role="img" aria-label="Flying Leoz">
+      <text x="500" y="126" text-anchor="middle" textLength="988" lengthAdjust="spacingAndGlyphs">FLYING LEOZ</text>
+    </svg>
+
+    <div class="ftr__bar">
+      <div>
+        <span>© 2025. All rights reserved.</span>
+        <span>Flying Leoz Media Private Limited</span>
+      </div>
+      <a class="totop" href="#home" data-nav>Back to top
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13.5V2.5M3 7.5L8 2.5l5 5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="lb__x" id="lbX" aria-label="Close image viewer"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  var done = new WeakSet();
+
+  /* ---------- sticky nav state ---------- */
+  var nav = document.getElementById("nav");
+  var lastY = -1;
+  function onScroll() {
+    var y = window.scrollY;
+    if (y === lastY) return;
+    lastY = y;
+    nav.classList.toggle("is-stuck", y > 24);
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- mobile menu ---------- */
+  var burger = document.getElementById("burger");
+  var sheet = document.getElementById("sheet");
+  function setMenu(open) {
+    document.documentElement.classList.toggle("is-open", open);
+    document.body.classList.toggle("is-locked", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    sheet.setAttribute("aria-hidden", String(!open));
+    if (open) {
+      var links = sheet.querySelectorAll("a");
+      links.forEach(function (a, i) { a.style.transitionDelay = (80 + i * 60) + "ms"; });
+      setTimeout(function () { links[0].focus(); }, 90);
+    } else {
+      sheet.querySelectorAll("a").forEach(function (a) { a.blur(); });
+    }
+  }
+  burger.addEventListener("click", function () {
+    setMenu(!document.documentElement.classList.contains("is-open"));
+  });
+  /* A landscape flip or a desktop resize would otherwise leave the page scroll-locked. */
+  var wide = matchMedia("(min-width:1024px)");
+  function leaveWide() {
+    if (wide.matches && document.documentElement.classList.contains("is-open")) setMenu(false);
+  }
+  if (wide.addEventListener) wide.addEventListener("change", leaveWide);
+  else if (wide.addListener) wide.addListener(leaveWide);
+  addEventListener("resize", leaveWide);
+  sheet.addEventListener("click", function (e) {
+    if (e.target.closest("a")) setMenu(false);
+  });
+  addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.documentElement.classList.contains("is-open")) {
+      setMenu(false);
+      burger.focus();
+    }
+  });
+
+  /* ---------- scroll reveal ---------- */
+  document.querySelectorAll("[data-rv='word']").forEach(function (el) {
+    var words = (el.textContent || "").trim().split(/\s+/);
+    el.textContent = "";
+    words.forEach(function (word, i) {
+      var s = document.createElement("span");
+      s.className = "w";
+      s.style.setProperty("--wi", i);
+      s.textContent = word;
+      el.appendChild(s);
+      el.appendChild(document.createTextNode(" "));
+    });
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting || done.has(en.target)) return;
+      done.add(en.target);
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+  document.querySelectorAll("[data-rv]").forEach(function (el) { io.observe(el); });
+
+  /* ---------- animated counters ---------- */
+  var cio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting || done.has(en.target)) return;
+      done.add(en.target);
+      var el = en.target, to = parseFloat(el.dataset.to) || 0, sfx = el.dataset.suffix || "";
+      if (reduce.matches) { el.textContent = to + sfx; cio.unobserve(el); return; }
+      var t0 = performance.now(), dur = 1600;
+      (function tick(now) {
+        var p = Math.min(1, (now - t0) / dur);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * e) + sfx;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll(".num").forEach(function (el) { cio.observe(el); });
+
+  /* ---------- active nav link ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+  var secIds = ["home", "about", "services", "work", "clients", "packages", "faq", "contact"];
+  var sio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var id = en.target.id;
+      navLinks.forEach(function (a) {
+        var on = a.getAttribute("href") === "#" + id;
+        a.classList.toggle("active", on);
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  secIds.forEach(function (id) {
+    var s = document.getElementById(id);
+    if (s) sio.observe(s);
+  });
+
+  /* ---------- anchor offset ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      var t = document.getElementById(id);
+      if (!t) return;
+      e.preventDefault();
+      var offset = nav.offsetHeight + 14;
+      var y = t.getBoundingClientRect().top + window.scrollY - offset;
+      scrollTo({ top: Math.max(0, y), behavior: reduce.matches ? "auto" : "smooth" });
+      history.replaceState(null, "", "#" + id);
+      t.setAttribute("tabindex", "-1");
+      t.focus({ preventScroll: true });
+    });
+  });
+
+  /* ---------- hero wordmark: fit to full bleed, keep every glyph ---------- */
+  var wordBox = document.getElementById("heroWord");
+  if (wordBox) {
+    var wordTxt = wordBox.firstElementChild;
+    var heroMain = document.querySelector(".hero__main");
+    var inkCtx = document.createElement("canvas").getContext("2d");
+
+    function inkBox() {
+      var cs = getComputedStyle(wordTxt);
+      var fs = parseFloat(cs.fontSize) || 200;
+      var lh = parseFloat(cs.lineHeight) || fs;
+      inkCtx.font = cs.fontStyle + " " + cs.fontWeight + " " + fs + "px " + cs.fontFamily;
+      var m = inkCtx.measureText(wordTxt.textContent);
+      if (typeof m.fontBoundingBoxAscent !== "number") return { top: fs * 0.2, bottom: fs };
+      var base = (lh - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent;
+      return { top: base - m.actualBoundingBoxAscent, bottom: base + m.actualBoundingBoxDescent };
+    }
+
+    function fitWord() {
+      wordTxt.style.setProperty("--k", "1");
+      var avail = wordBox.clientWidth;
+      var nat = wordTxt.offsetWidth;
+      if (!avail || !nat) return;
+      var ink = inkBox();
+      var inkH = ink.bottom - ink.top;
+      var kw = avail / nat;
+      var k = kw;
+      if (heroMain) {
+        var prev = wordBox.style.getPropertyValue("--wh");
+        wordBox.style.setProperty("--wh", "0px");
+        var room = wordBox.getBoundingClientRect().top - heroMain.getBoundingClientRect().bottom - 24;
+        if (prev) wordBox.style.setProperty("--wh", prev); else wordBox.style.removeProperty("--wh");
+        if (room > 0) k = Math.max(Math.min(kw, room / inkH), kw * 0.72);
+      }
+      wordTxt.style.setProperty("--k", k.toFixed(5));
+      wordTxt.style.setProperty("--wy", (-ink.top * k).toFixed(2) + "px");
+      wordBox.style.setProperty("--wh", Math.ceil(inkH * k) + "px");
+    }
+    var wr = 0;
+    window.addEventListener("resize", function () {
+      if (wr) return;
+      wr = requestAnimationFrame(function () { wr = 0; fitWord(); });
+    });
+    window.addEventListener("load", fitWord);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWord);
+    fitWord();
+  }
+
+  /* ---------- hero project card ---------- */
+  (function heroCard() {
+    var view = document.getElementById("heroSlide");
+    if (!view) return;
+    var track = document.getElementById("hTrack");
+    var slides = Array.prototype.slice.call(track.children);
+    var tag = document.getElementById("hTag");
+    var title = document.getElementById("hTitle");
+    var pos = document.getElementById("hIdx");
+    var live = document.getElementById("hLive");
+    var i = 0, timer = 0, n = slides.length;
+    function pad(v) { return (v < 10 ? "0" : "") + v; }
+    function show(next, announce) {
+      i = (next + n) % n;
+      track.style.transform = "translate3d(" + (-100 * i) + "%,0,0)";
+      var s = slides[i];
+      title.textContent = s.getAttribute("data-title");
+      tag.textContent = s.getAttribute("data-tag");
+      pos.textContent = pad(i + 1) + " / " + pad(n);
+      view.setAttribute("aria-label", "Selected Flying Leoz work, slide " + (i + 1) + " of " + n);
+      if (announce) live.textContent = title.textContent + " — " + tag.textContent;
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = 0; } }
+    function start() { stop(); if (!reduce.matches) timer = setInterval(function () { show(i + 1, false); }, 5400); }
+    document.getElementById("hPrev").addEventListener("click", function () { show(i - 1, true); });
+    document.getElementById("hNext").addEventListener("click", function () { show(i + 1, true); });
+    view.tabIndex = 0;
+    view.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(i - 1, true); }
+      if (e.key === "ArrowRight") { e.preventDefault(); show(i + 1, true); }
+    });
+    ["pointerenter", "focusin"].forEach(function (ev) { view.addEventListener(ev, stop); });
+    ["pointerleave", "focusout"].forEach(function (ev) { view.addEventListener(ev, start); });
+    var x0 = 0;
+    view.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    view.addEventListener("touchend", function (e) {
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1), true);
+      start();
+    }, { passive: true });
+    show(0, false);
+    start();
+  })();
+
+  /* ---------- featured work: cursor-following index previews ---------- */
+  (function workIndex() {
+    var rows = Array.prototype.slice.call(document.querySelectorAll("#work .wrow"));
+    if (!rows.length) return;
+    var canHover = matchMedia("(min-width:1024px) and (hover:hover)");
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    var row = null, box = null, raf = 0, bw = 220, bh = 258;
+    var tx = 0, ty = 0, px = 0, py = 0;
+
+    function draw() {
+      if (!box) return;
+      var m = 16;
+      var x = px - bw / 2, y = py - bh / 2;
+      x = Math.max(m, Math.min(Math.max(m, innerWidth - bw - m), x));
+      y = Math.max(m, Math.min(Math.max(m, innerHeight - bh - m), y));
+      var lean = Math.max(-9, Math.min(9, (tx - px) * 0.45));
+      box.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0) rotate(" + lean.toFixed(2) + "deg)";
+    }
+
+    function loop() {
+      raf = 0;
+      if (!row) return;
+      var k = reduce.matches ? 1 : 0.17;
+      px += (tx - px) * k;
+      py += (ty - py) * k;
+      draw();
+      if (!reduce.matches) raf = requestAnimationFrame(loop);
+    }
+
+    function show(target, x, y) {
+      if (!canHover.matches) return;
+      box = target.querySelector(".wrow__media");
+      if (!box) return;
+      rows.forEach(function (r) { if (r !== target) r.classList.remove("on"); });
+      bw = box.offsetWidth || bw;
+      bh = box.offsetHeight || bh;
+      tx = px = x; ty = py = y;
+      row = target;
+      draw();
+      target.classList.add("on");
+      if (!raf) raf = requestAnimationFrame(loop);
+    }
+
+    function hide(target) {
+      if (row && (!target || target === row)) {
+        if (row) row.classList.remove("on");
+        row = null; box = null;
+      }
+    }
+
+    rows.forEach(function (r) {
+      r.addEventListener("pointerenter", function (e) {
+        if (e.pointerType === "touch") return;
+        show(r, e.clientX, e.clientY);
+      });
+      r.addEventListener("pointerleave", function () { hide(r); });
+      r.addEventListener("focusin", function () {
+        var b = r.getBoundingClientRect();
+        show(r, Math.min(innerWidth - 140, b.left + b.width * 0.62), b.top + b.height / 2);
+      });
+      r.addEventListener("focusout", function (e) {
+        if (!r.contains(e.relatedTarget)) hide(r);
+      });
+    });
+    addEventListener("pointermove", function (e) {
+      if (!row) return;
+      tx = e.clientX; ty = e.clientY;
+      if (reduce.matches) { px = tx; py = ty; draw(); }
+      else if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+    addEventListener("resize", draw, { passive: true });
+    addEventListener("scroll", function () { if (row) draw(); }, { passive: true });
+
+    var idx = document.getElementById("workIdx");
+    if (idx) idx.addEventListener("click", function (e) {
+      if (e.target.closest && e.target.closest("[data-full]")) return;
+      var host = e.target.closest ? e.target.closest(".wrow--btn") : null;
+      if (!host) return;
+      var b = host.querySelector(".wrow__go");
+      if (b) openLb(b);
+    });
+  })();
+
+  /* ---------- services split panel (sticky detail + vertical tabs) ---------- */
+  (function svcSplit() {
+    var list = document.getElementById("svcTabs");
+    var side = document.getElementById("svcSide");
+    var panel = document.getElementById("svcPanel");
+    if (!list || !side || !panel) return;
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var rows = tabs.map(function (t) { return t.parentNode; });
+    var img = document.getElementById("svcImg");
+    var catEl = document.getElementById("svcCat");
+    var descEl = document.getElementById("svcDesc");
+    var tagsEl = document.getElementById("svcTags");
+    var stack = matchMedia("(max-width: 1023px)");
+    var hoverable = matchMedia("(hover:hover)");
+    var cur = -1;
+
+    tabs.forEach(function (t) { var pre = new Image(); pre.src = t.dataset.img; });
+
+    function place(i) {
+      var host = stack.matches ? rows[i] : side;
+      if (panel.parentNode !== host) host.appendChild(panel);
+      panel.setAttribute("aria-labelledby", tabs[i].id);
+    }
+
+    function show(i) {
+      if (i === cur || !tabs[i]) return;
+      var t = tabs[i];
+      cur = i;
+      tabs.forEach(function (o, n) {
+        var on = n === i;
+        o.setAttribute("aria-selected", String(on));
+        o.tabIndex = on ? 0 : -1;
+        rows[n].classList.toggle("on", on);
+      });
+      img.src = t.dataset.img;
+      img.alt = "Flying Leoz Media — " + t.dataset.name;
+      catEl.textContent = t.dataset.name;
+      descEl.textContent = t.dataset.desc;
+      tagsEl.textContent = "";
+      (t.dataset.tags || "").split("|").forEach(function (label) {
+        if (!label) return;
+        var chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = label;
+        tagsEl.appendChild(chip);
+      });
+      place(i);
+      if (!reduce.matches) {
+        panel.classList.remove("anim");
+        void panel.offsetWidth;
+        panel.classList.add("anim");
+      }
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { show(i); });
+      if (hoverable.matches) {
+        t.addEventListener("pointerenter", function () { show(i); });
+      }
+    });
+
+    list.addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      var n = -1;
+      if (e.key === "ArrowDown") n = (i + 1) % tabs.length;
+      else if (e.key === "ArrowUp") n = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === "Home") n = 0;
+      else if (e.key === "End") n = tabs.length - 1;
+      if (n < 0) return;
+      e.preventDefault();
+      show(n);
+      tabs[n].focus();
+    });
+
+    if (stack.addEventListener) stack.addEventListener("change", function () { if (cur > -1) place(cur); });
+    show(0);
+  })();
+
+  /* ---------- showreel click-to-embed ---------- */
+  var reelBtn = document.getElementById("reelBtn");
+  if (reelBtn) {
+    reelBtn.addEventListener("click", function () {
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/Q9gw3rOyHh0?autoplay=1&rel=0";
+      f.title = "Flying Leoz Media showreel";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      f.allowFullscreen = true;
+      reelBtn.replaceWith(f);
+    });
+  }
+
+  /* ---------- testimonial carousel: drag + arrows + dots ---------- */
+  var track = document.getElementById("tTrack");
+  var cards = Array.prototype.slice.call(track.children);
+  var dotsBox = document.getElementById("tDots");
+  var prev = document.getElementById("tPrev");
+  var next = document.getElementById("tNext");
+
+  cards.forEach(function (_, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Go to testimonial " + (i + 1));
+    b.addEventListener("click", function () { go(i); });
+    dotsBox.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsBox.children);
+
+  function step() {
+    if (cards.length < 2) return 0;
+    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+  }
+  function index() {
+    var s = step() || 1;
+    return Math.max(0, Math.min(cards.length - 1, Math.round(track.scrollLeft / s)));
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    track.scrollTo({ left: i * step(), behavior: reduce.matches ? "auto" : "smooth" });
+  }
+  function sync() {
+    var i = index();
+    var fits = track.scrollWidth <= track.clientWidth + 2;
+    track.closest(".tst").classList.toggle("fit", fits);
+    dots.forEach(function (d, n) { d.setAttribute("aria-current", String(n === i)); });
+    prev.disabled = fits || track.scrollLeft <= 2;
+    next.disabled = fits || track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+  }
+  prev.addEventListener("click", function () { go(index() - 1); });
+  next.addEventListener("click", function () { go(index() + 1); });
+  track.addEventListener("scroll", sync, { passive: true });
+  addEventListener("resize", sync);
+  track.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); go(index() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); go(index() - 1); }
+  });
+  var drag = { on: false, x: 0, left: 0, moved: false };
+  track.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "touch") return;
+    drag.on = true; drag.moved = false; drag.x = e.clientX; drag.left = track.scrollLeft;
+    track.classList.add("drag");
+  });
+  addEventListener("pointermove", function (e) {
+    if (!drag.on) return;
+    var dx = e.clientX - drag.x;
+    if (Math.abs(dx) > 3) drag.moved = true;
+    if (drag.moved) track.scrollLeft = drag.left - dx;
+  }, { passive: true });
+  addEventListener("pointerup", function () {
+    if (!drag.on) return;
+    drag.on = false;
+    track.classList.remove("drag");
+    if (drag.moved) {
+      var i = index();
+      track.scrollTo({ left: i * step(), behavior: reduce.matches ? "auto" : "smooth" });
+    }
+  });
+  /* keep click targets (arrows inside cards) working after a drag */
+  track.addEventListener("click", function (e) {
+    if (drag.moved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+  sync();
+
+  /* ---------- gallery lightbox ---------- */
+  var lb = document.getElementById("lb");
+  var lbImg = document.getElementById("lbImg");
+  var lbCap = document.getElementById("lbCap");
+  var lbX = document.getElementById("lbX");
+  var opener = null;
+  function openLb(btn) {
+    opener = btn;
+    lbImg.src = btn.dataset.full;
+    lbImg.alt = btn.parentElement.querySelector("img").alt;
+    lbCap.textContent = btn.dataset.cap || "";
+    lb.hidden = false;
+    requestAnimationFrame(function () { lb.classList.add("on"); });
+    document.body.classList.add("is-locked");
+    lbX.focus();
+  }
+  function closeLb() {
+    lb.classList.remove("on");
+    document.body.classList.remove("is-locked");
+    setTimeout(function () {
+      lb.hidden = true;
+      lbImg.removeAttribute("src");
+    }, 320);
+    if (opener) opener.focus();
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest ? e.target.closest("[data-full]") : null;
+    if (b) openLb(b);
+  });
+  lbX.addEventListener("click", closeLb);
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !lb.hidden) closeLb();
+  });
+
+  /* ---------- impact contact sheet: seamless film rows ---------- */
+  var film = document.getElementById("gal");
+  if (film) {
+    var tracks = Array.prototype.slice.call(film.querySelectorAll(".film__track"));
+    var originals = new WeakMap();
+    function buildSheet() {
+      var cw = film.getBoundingClientRect().width || 1;
+      tracks.forEach(function (t) {
+        var base = originals.get(t);
+        if (!base) { base = Array.prototype.slice.call(t.children); originals.set(t, base); }
+        Array.prototype.slice.call(t.children).forEach(function (n) { if (base.indexOf(n) === -1) n.remove(); });
+        var gap = parseFloat(getComputedStyle(t).columnGap) || 0;
+        var copyW = t.scrollWidth + gap;
+        var copies = (reduce.matches || !matchMedia("(hover:hover)").matches) ? 1 : Math.max(2, Math.ceil((cw + gap) / copyW) + 1);
+        for (var i = 1; i < copies; i++) {
+          base.forEach(function (n) {
+            var c = n.cloneNode(true);
+            c.setAttribute("aria-hidden", "true");
+            var b = c.querySelector("button");
+            if (b) b.tabIndex = -1;
+            t.appendChild(c);
+          });
+        }
+        t.style.setProperty("--shift", copyW + "px");
+        t.style.animationDuration = (copyW / (parseFloat(t.parentNode.getAttribute("data-spd")) || 30)).toFixed(2) + "s";
+      });
+    }
+    var fsz = 0;
+    addEventListener("resize", function () {
+      clearTimeout(fsz);
+      fsz = setTimeout(buildSheet, 180);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildSheet);
+    buildSheet();
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (en) { film.classList.toggle("idle", !en.isIntersecting); });
+      }, { rootMargin: "20% 0px" }).observe(film);
+    }
+  }
+
+  /* ---------- contact form: validate + mailto ---------- */
+  var form = document.getElementById("form");
+  var status = document.getElementById("formStatus");
+  var RE_MAIL = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+  var rules = {
+    name: function (v) { return v.trim().length >= 2 ? "" : "Please enter your name (2+ characters)."; },
+    email: function (v) { return RE_MAIL.test(v.trim()) ? "" : "Please enter a valid email address."; },
+    message: function (v) { return v.trim().length >= 10 ? "" : "Tell us a little more (10+ characters)."; }
+  };
+  function fieldOf(input) { return input.closest("[data-fld]"); }
+  function check(input, live) {
+    var msg = rules[input.name](input.value);
+    var box = fieldOf(input);
+    box.classList.toggle("bad", !!msg);
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+    box.querySelector(".err").textContent = msg;
+    return !msg;
+  }
+  form.querySelectorAll("input,textarea").forEach(function (input) {
+    input.addEventListener("blur", function () { check(input); });
+    input.addEventListener("input", function () {
+      if (fieldOf(input).classList.contains("bad")) check(input, true);
+    });
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var inputs = Array.prototype.slice.call(form.querySelectorAll("input,textarea"));
+    var bad = inputs.filter(function (i) { return !check(i); });
+    if (bad.length) {
+      status.className = "form__status";
+      status.textContent = "Please correct " + bad.length + " field" + (bad.length > 1 ? "s" : "") + " above.";
+      bad[0].focus();
+      return;
+    }
+    var name = form.elements.name.value.trim();
+    var mail = form.elements.email.value.trim();
+    var body = form.elements.message.value.trim();
+    var subject = "Website enquiry — " + name;
+    var text = body + "\n\n— " + name + "\n" + mail;
+    var href = "mailto:info@flyingleoz.com"
+      + "?subject=" + encodeURIComponent(subject)
+      + "&body=" + encodeURIComponent(text);
+    status.className = "form__status ok";
+    status.textContent = "Opening your email app with this message. If nothing happens, write to info@flyingleoz.com or call +91-9717406563.";
+    window.location.href = href;
+  });
+})();
+</script>
+</body>
+</html>
